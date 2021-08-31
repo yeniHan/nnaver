@@ -1,0 +1,17 @@
+{
+  "extends": "next/core-web-vitals",
+  "rules": {
+    "indent": [
+      "error",
+      2
+    ],
+    "semi": [
+      "error",
+      "always"
+    ],
+    "no-trailing-spaces": 1,
+    "keyword-spacing": 1,
+    "no-unused-vars": 1,
+    "space-before-function-paren": 1
+  }
+}
