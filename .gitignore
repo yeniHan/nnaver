@@ -20,3 +20,6 @@ bin-release/
 node_modules/
 credentials.js
 .env
+
+# next.js build output
+.next/

@@ -52,7 +52,7 @@ const SearchInput = () => {
     <div>
       <Wrapper>
         <Input />
-        <DropdownArrow folded={folded} onClick={onClickDropdownArrow} folded={folded} />
+        <DropdownArrow folded={folded} onClick={onClickDropdownArrow} />
         <SearchICWrapper>
           <SearchIC />
         </SearchICWrapper>

@@ -21,6 +21,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _styles_normalize_css__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_styles_normalize_css__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _styles_customReset_scss__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./@styles/customReset.scss */ "./pages/@styles/customReset.scss");
 /* harmony import */ var _styles_customReset_scss__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_styles_customReset_scss__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _styles_index_scss__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./@styles/index.scss */ "./pages/@styles/index.scss");
+/* harmony import */ var _styles_index_scss__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_styles_index_scss__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _styles_infinite_react_carousel_css__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./@styles/infinite-react-carousel.css */ "./pages/@styles/infinite-react-carousel.css");
+/* harmony import */ var _styles_infinite_react_carousel_css__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_styles_infinite_react_carousel_css__WEBPACK_IMPORTED_MODULE_4__);
 
 var _jsxFileName = "C:\\Users\\Yena Han\\Documents\\nnaver\\pages\\_app.js";
 
@@ -33,13 +37,15 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 
 
+
+
 function App({
   Component,
   pageProps
 }) {
   return /*#__PURE__*/(0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(Component, _objectSpread({}, pageProps), void 0, false, {
     fileName: _jsxFileName,
-    lineNumber: 5,
+    lineNumber: 7,
     columnNumber: 10
   }, this);
 }
@@ -52,6 +58,26 @@ function App({
 /*!****************************************!*\
   !*** ./pages/@styles/customReset.scss ***!
   \****************************************/
+/***/ (() => {
+
+
+
+/***/ }),
+
+/***/ "./pages/@styles/index.scss":
+/*!**********************************!*\
+  !*** ./pages/@styles/index.scss ***!
+  \**********************************/
+/***/ (() => {
+
+
+
+/***/ }),
+
+/***/ "./pages/@styles/infinite-react-carousel.css":
+/*!***************************************************!*\
+  !*** ./pages/@styles/infinite-react-carousel.css ***!
+  \***************************************************/
 /***/ (() => {
 
 
@@ -90,4 +116,4 @@ var __webpack_exports__ = (__webpack_exec__("./pages/_app.js"));
 module.exports = __webpack_exports__;
 
 })();
-//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoicGFnZXMvX2FwcC5qcyIsIm1hcHBpbmdzIjoiOzs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7OztBQUFBO0FBQ0E7O0FBRUEsU0FBU0EsR0FBVCxDQUFjO0FBQUVDLEVBQUFBLFNBQUY7QUFBYUMsRUFBQUE7QUFBYixDQUFkLEVBQXdDO0FBQ3RDLHNCQUFPLDhEQUFDLFNBQUQsb0JBQWVBLFNBQWY7QUFBQTtBQUFBO0FBQUE7QUFBQSxVQUFQO0FBQ0Q7O0FBRUQsaUVBQWVGLEdBQWY7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7QUNQQSIsInNvdXJjZXMiOlsid2VicGFjazovL25uYXZlci8uL3BhZ2VzL19hcHAuanMiLCJ3ZWJwYWNrOi8vbm5hdmVyL2V4dGVybmFsIFwicmVhY3QvanN4LWRldi1ydW50aW1lXCIiXSwic291cmNlc0NvbnRlbnQiOlsiaW1wb3J0ICcuL0BzdHlsZXMvbm9ybWFsaXplLmNzcyc7XG5pbXBvcnQgJy4vQHN0eWxlcy9jdXN0b21SZXNldC5zY3NzJztcblxuZnVuY3Rpb24gQXBwICh7IENvbXBvbmVudCwgcGFnZVByb3BzIH0pIHtcbiAgcmV0dXJuIDxDb21wb25lbnQgey4uLnBhZ2VQcm9wc30gLz47XG59XG5cbmV4cG9ydCBkZWZhdWx0IEFwcDtcbiIsIm1vZHVsZS5leHBvcnRzID0gcmVxdWlyZShcInJlYWN0L2pzeC1kZXYtcnVudGltZVwiKTsiXSwibmFtZXMiOlsiQXBwIiwiQ29tcG9uZW50IiwicGFnZVByb3BzIl0sInNvdXJjZVJvb3QiOiIifQ==
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoicGFnZXMvX2FwcC5qcyIsIm1hcHBpbmdzIjoiOzs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7QUFBQTtBQUNBO0FBQ0E7QUFDQTs7QUFFQSxTQUFTQSxHQUFULENBQWM7QUFBRUMsRUFBQUEsU0FBRjtBQUFhQyxFQUFBQTtBQUFiLENBQWQsRUFBd0M7QUFDdEMsc0JBQU8sOERBQUMsU0FBRCxvQkFBZUEsU0FBZjtBQUFBO0FBQUE7QUFBQTtBQUFBLFVBQVA7QUFDRDs7QUFFRCxpRUFBZUYsR0FBZjs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7O0FFVEEiLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly9ubmF2ZXIvLi9wYWdlcy9fYXBwLmpzIiwid2VicGFjazovL25uYXZlci8uL3BhZ2VzL0BzdHlsZXMvaW5maW5pdGUtcmVhY3QtY2Fyb3VzZWwuY3NzIiwid2VicGFjazovL25uYXZlci9leHRlcm5hbCBcInJlYWN0L2pzeC1kZXYtcnVudGltZVwiIl0sInNvdXJjZXNDb250ZW50IjpbImltcG9ydCAnLi9Ac3R5bGVzL25vcm1hbGl6ZS5jc3MnO1xuaW1wb3J0ICcuL0BzdHlsZXMvY3VzdG9tUmVzZXQuc2Nzcyc7XG5pbXBvcnQgJy4vQHN0eWxlcy9pbmRleC5zY3NzJztcbmltcG9ydCAnLi9Ac3R5bGVzL2luZmluaXRlLXJlYWN0LWNhcm91c2VsLmNzcyc7XG5cbmZ1bmN0aW9uIEFwcCAoeyBDb21wb25lbnQsIHBhZ2VQcm9wcyB9KSB7XG4gIHJldHVybiA8Q29tcG9uZW50IHsuLi5wYWdlUHJvcHN9IC8+O1xufVxuXG5leHBvcnQgZGVmYXVsdCBBcHA7XG4iLCIiLCJtb2R1bGUuZXhwb3J0cyA9IHJlcXVpcmUoXCJyZWFjdC9qc3gtZGV2LXJ1bnRpbWVcIik7Il0sIm5hbWVzIjpbIkFwcCIsIkNvbXBvbmVudCIsInBhZ2VQcm9wcyJdLCJzb3VyY2VSb290IjoiIn0=
