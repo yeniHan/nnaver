@@ -10,7 +10,7 @@ const deleteRecentSearchedWords = async ({ all, id }: { all?: boolean; id?: stri
       all,
       id,
     },
-    isAuth: true,
+    isAuth: false,
   });
 
   return data;

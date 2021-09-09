@@ -6,7 +6,7 @@ import TopMenuBarIcons from './TopMenuBarIcons';
 import colors from '../../@styles/Colors';
 import RealTimeWeatherInfoSlider from './RealTimeWeatherInfoSlider';
 
-const Wrapper = styled.ul`
+const Wrapper = styled.div`
   padding: 0 30px;
   height: 52px;
   display: flex;
@@ -15,8 +15,8 @@ const Wrapper = styled.ul`
   box-shadow: 0 1px 3px 0 rgb(0 0 0 / 12%);
 `;
 
-const MenuWrapper = styled.div`
-  display: flex;
+const MenuWrapper = styled.ul`
+  display: inherit;
   align-items: inherit;
 
   > li {
@@ -24,18 +24,21 @@ const MenuWrapper = styled.div`
     display: inherit;
     margin-right: 10px;
     align-items: center;
-
+    word-break: keep-all;
+    
     &:last-child {
       margin-right: 0;
     }
   }
 `;
+
 const PrimaryMenuItem = styled.li`
   color: ${colors.naverGreen};
   display: flex;
 `;
 
 const SeeMoreBtn = styled.button(({ folded }) => css`
+  width: 61px;
   margin-left: 17px;
   font-size: 13px;
   color: #202020;

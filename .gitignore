@@ -21,5 +21,7 @@ node_modules/
 credentials.js
 .env
 
+build/
+
 # next.js build output
 .next/

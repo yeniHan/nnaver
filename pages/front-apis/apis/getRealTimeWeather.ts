@@ -2,9 +2,9 @@ import request from '../utills/request';
 import APIS from '../../@constants/APIS';
 import METHODS from '../../@constants/METHODS';
 
-const getRecentSearchedWords = async () => {
+const getRealTimeWeather = async () => {
   const data = await request({
-    url: APIS.GET_RECENT_SEARCHED_WORDS,
+    url: APIS.GET_REAL_TIME_WEATHER,
     method: METHODS.GET,
     isAuth: false,
   });
@@ -12,4 +12,4 @@ const getRecentSearchedWords = async () => {
   return data;
 };
 
-export default getRecentSearchedWords;
+export default getRealTimeWeather;

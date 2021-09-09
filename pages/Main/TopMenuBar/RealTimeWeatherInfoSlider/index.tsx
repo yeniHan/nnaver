@@ -1,19 +1,18 @@
 import React from 'react';
-import Slider from 'infinite-react-carousel';
-import realTimeWeatherInfo from '../../../api/dummyData/realTimeWeatherInfo';
+import realTimeWeather from '../../../api/dummyData/realTimeWeather';
 import styled, { css } from 'styled-components';
-import colors from '../../../@styles/Colors';
 import DustInfo from './DustInfo';
 import WeatherInfo from './WeatherInfo';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import {Autoplay} from "swiper";
 
-
-const StyledSlider = styled(Slider)`
+const Wrapper = styled.div`
   width: 260px !important;
   height: 100%;
 `;
 
-const Slide = styled.div`
-  width: 240px;
+const InnerSlide = styled.div`
+  width: 280px;
   height: 52px;
   display: flex !important;
   align-items: center;
@@ -21,19 +20,21 @@ const Slide = styled.div`
 
 
 const RealTimeWeatherInfoSlider = () => {
-  const { dust, weather, temperature, location} = realTimeWeatherInfo;
+  const { dust, weather, temperature, location} = realTimeWeather;
   return (
-    <StyledSlider
-      autoplay={true}
-      arrows={false}
-    >
-      <Slide>
-        <DustInfo dust={dust} location={location}/>
-      </Slide>
-      <Slide>
-        <WeatherInfo weather={weather} temperature={temperature} location={location} />
-      </Slide>
-    </StyledSlider>
+    <Wrapper>
+      <Swiper
+        modules={[Autoplay]}
+        autoplay={{ delay: 1000}}
+        loop={true}>
+        <SwiperSlide>
+          <InnerSlide><DustInfo dust={dust} location={location}/></InnerSlide>
+        </SwiperSlide>
+        <SwiperSlide>
+          <InnerSlide><WeatherInfo weather={weather} temperature={temperature} location={location} /></InnerSlide>
+        </SwiperSlide>
+      </Swiper>
+    </Wrapper>
   );
 };
 

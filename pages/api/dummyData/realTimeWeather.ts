@@ -1,5 +1,5 @@
 
-const realTimeWeatherInfo = {
+const realTimeWeather = {
   dust: {
     fine: 2,
     ultraFine:2,
@@ -13,4 +13,4 @@ const realTimeWeatherInfo = {
   location: '역삼동',
 };
 
-export default realTimeWeatherInfo;
+export default realTimeWeather;
