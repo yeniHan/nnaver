@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import styled, { css } from 'styled-components';
 import colors from '../../../@styles/Colors';
-import deleteRecentSearchedWords from '../../../front-apis/apis/deleteRecentSearchedWords';
+import deleteRecentSearchedWords from '../../../front-apis/apis/main/deleteRecentSearchedWords';
 import { commonIconCSS2 } from '../../@styles/index';
-import getRecentSearchedWordsApi from "../../../front-apis/apis/getRecentSearchedWords";
+import getRecentSearchedWordsApi from "../../../front-apis/apis/main/getRecentSearchedWords";
 
 const Wrapper = styled.div`
   border: 1px solid ${colors.gray1};

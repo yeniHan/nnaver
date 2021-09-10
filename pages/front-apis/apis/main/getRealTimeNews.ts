@@ -1,6 +1,6 @@
-import request from '../utills/request';
-import APIS from '../../@constants/APIS';
-import METHODS from '../../@constants/METHODS';
+import request from '../../utills/request';
+import APIS from '../../../@constants/APIS';
+import METHODS from '../../../@constants/METHODS';
 
 const getRealTimeNews = async () => {
   const data = await request({

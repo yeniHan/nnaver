@@ -1,9 +1,9 @@
 import React, {useEffect, useState} from 'react';
 import styled from 'styled-components';
-import getRealTimeNews from '../../../front-apis/apis/getRealTimeNews';
+import getRealTimeNews from '../../../../front-apis/apis/main/getRealTimeNews';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay } from "swiper";
-import { commonIconCSS } from '../../@styles/index';
+import { commonIconCSS } from '../../../@styles';
 
 const Wrapper = styled.div`
   width: 100%;
@@ -28,6 +28,7 @@ const Media = styled.span`
   font-size: 13px;
   margin-top: 3px;
   margin-right: 8px;
+  word-break: keep-all;
 `;
 
 const ArrowIc = styled.span`
@@ -39,11 +40,13 @@ const ArrowIc = styled.span`
   margin-top: 5px;
 `;
 
-const Title = styled.div`
+const Title = styled.a`
+  display: block;
   width: 310px;
-  overflow:hidden;
+  overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+  cursor: pointer;
 
   :hover {
     text-decoration: underline;

@@ -1,6 +1,6 @@
-import request from '../utills/request';
-import APIS from '../../@constants/APIS';
-import METHODS from '../../@constants/METHODS';
+import request from '../../utills/request';
+import APIS from '../../../@constants/APIS';
+import METHODS from '../../../@constants/METHODS';
 
 const getRealTimeWeather = async () => {
   const data = await request({

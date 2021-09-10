@@ -1,10 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import styled, { css } from 'styled-components';
-import topBarMenu from '../../api/dummyData/topBarMenu';
+import getMainMenus from '../../front-apis/apis/main/getMainMenus';
 import { commonIconCSS } from '../@styles/index';
 import TopMenuBarIcons from './TopMenuBarIcons';
 import colors from '../../@styles/Colors';
 import RealTimeWeatherInfoSlider from './RealTimeWeatherInfoSlider';
+import FoldingMenu from './FoldingMenu';
 
 const Wrapper = styled.div`
   padding: 0 30px;
@@ -13,6 +14,8 @@ const Wrapper = styled.div`
   justify-content: space-between;
   align-items: center;
   box-shadow: 0 1px 3px 0 rgb(0 0 0 / 12%);
+  margin-top: 35px;
+  position: relative;
 `;
 
 const MenuWrapper = styled.ul`
@@ -33,7 +36,11 @@ const MenuWrapper = styled.ul`
 `;
 
 const PrimaryMenuItem = styled.li`
-  color: ${colors.naverGreen};
+  a { 
+    color: ${colors.naverGreen};
+  }
+  
+  cursor: pointer;
   display: flex;
 `;
 
@@ -45,7 +52,8 @@ const SeeMoreBtn = styled.button(({ folded }) => css`
   align-items: inherit;
   display: inherit;
   color: ${folded ? 'unset' : colors.naverGreen};
-  
+  cursor: pointer;
+
   span:hover {
     text-decoration: underline;
     ${!folded && `text-decoration-color: ${colors.naverGreen}`};
@@ -61,8 +69,18 @@ const ArrowBtn = styled.button(({ folded }) => css`
 `);
 
 const TopMenuBar = () => {
-  const { primary, nonPrimary } = topBarMenu;
+  const [mainMunus, setMainMenus]= useState();
+  const [foldingMenus, setFoldingMenu] = useState();
+  const primary = mainMunus?.primary;
+  const nonPrimary = mainMunus?.nonPrimary;
   const [folded, setFolded] = useState(true);
+
+  useEffect( () => {
+    getMainMenus().then((data) => {
+      setMainMenus(data?.topBar);
+      setFoldingMenu(data?.topBarFolding);
+    });
+  }, []);
 
   const onClickSeeMoreBtn = () => {
     setFolded((prev) => !prev);
@@ -76,20 +94,21 @@ const TopMenuBar = () => {
           return (
             <PrimaryMenuItem key={v?.id}>
               {v?.hasIcon && <Ic />}
-              {v?.text && <span>{v?.text}</span>}
+              {v?.text && <a href={v?.url}>{v?.text}</a>}
             </PrimaryMenuItem>
           );
         })}
         {
           nonPrimary?.map((v) => (
             <li key={v?.id}>
-              <span>{v?.text}</span>
+              <a href={v?.url}>{v?.text}</a>
             </li>
           ))}
         <SeeMoreBtn onClick={onClickSeeMoreBtn} folded={folded}>
           <span>{folded ? '더보기' : '접기'}</span>
           <ArrowBtn folded={folded} />
         </SeeMoreBtn>
+        <FoldingMenu menus={foldingMenus} folded={folded} />
       </MenuWrapper>
       <RealTimeWeatherInfoSlider />
     </Wrapper>

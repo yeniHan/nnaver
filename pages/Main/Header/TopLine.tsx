@@ -25,10 +25,14 @@ const OtherServices = styled.div`
 `;
 const JuniorNaver = styled.button`
   ${commonIconCSS};
-  width: 60px;
+  width: 63px;
   height: 10px;
-  background-position: -285px -267px;
+  background-position: -284px -267px;
   margin-right: 10px;
+  
+  :hover {
+    background-position: -346px -267px;
+  }
 `;
 
 const HappyBean = styled.button`
@@ -36,6 +40,10 @@ const HappyBean = styled.button`
   width: 34px;
   height: 11px;
   background-position: -220px -144px;
+  
+  :hover {
+    background-position: -380px -199px;
+  }
 `;
 
 const RightArrowBtn = styled.button`

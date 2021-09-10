@@ -1,7 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
+import NewsStand from './NewsStand';
 import Banner from './Banner';
-import RealTimeNews from './RealTimeNews';
+import bannerImg from '../../../../assets/main/banner.png';
 
 const Wrapper = styled.div`
   width: 60%;
@@ -13,8 +14,8 @@ const Wrapper = styled.div`
 const MainContent = () => {
   return (
     <Wrapper>
-      <Banner src={'src url'} />
-      <RealTimeNews />
+      <Banner src={bannerImg} />
+      <NewsStand />
     </Wrapper>
   );
 };

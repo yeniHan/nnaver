@@ -1,4 +1,6 @@
-const withTM = require('next-transpile-modules')(['infinite-react-carousel']);
+const withTM = require('next-transpile-modules')([]);
+const withImages = require('next-images');
+
 
 module.exports = withTM({
   reactStrictMode: true,
