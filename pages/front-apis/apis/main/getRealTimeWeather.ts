@@ -4,7 +4,7 @@ import METHODS from '../../../@constants/METHODS';
 
 const getRealTimeWeather = async () => {
   const data = await request({
-    url: APIS.GET_REAL_TIME_WEATHER,
+    url: APIS.REAL_TIME_WEATHER,
     method: METHODS.GET,
     isAuth: false,
   });

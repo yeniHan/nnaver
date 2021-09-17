@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { mainMenuType } from './@types';
+import { mainMenuType } from './types';
 
 const Wrapper = styled.div`
   position: absolute;

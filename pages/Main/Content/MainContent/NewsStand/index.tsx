@@ -1,6 +1,11 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import styled from 'styled-components';
 import RealTimeNews from './RealTimeNews';
+import Header from './Header';
+import { useForm, FormProvider } from "react-hook-form";
+import Content from './Content';
+import {LAYOUT, LAYOUT_OPTIONS} from "../../../../@constants/LAYOUT_SELECTOR";
+import {MEDIA_SORTER, MEDIA_SORTERS} from "../../../../@constants/MEDIA_SORTERS";
 
 const Wrapper = styled.div`
   width: 100%;
@@ -8,9 +13,20 @@ const Wrapper = styled.div`
 `;
 
 const NewsStand = () => {
+  const methods = useForm({
+    defaultValues: {
+      [LAYOUT]: LAYOUT_OPTIONS.LIST,
+      [MEDIA_SORTER]: MEDIA_SORTERS.SUBSCRIBED,
+    }
+  });
+
   return (
     <Wrapper>
-      <RealTimeNews />
+      <FormProvider {...methods}>
+        <RealTimeNews />
+        <Header />
+        <Content />
+      </FormProvider>
     </Wrapper>
   );
 };

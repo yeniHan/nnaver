@@ -4,11 +4,12 @@ import getRealTimeNews from '../../../../front-apis/apis/main/getRealTimeNews';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay } from "swiper";
 import { commonIconCSS } from '../../../@styles';
+import colors from '../../../../@styles/Colors';
 
 const Wrapper = styled.div`
   width: 100%;
-  background-color: #f7f9fa;
-  border: 1px solid #dae1e6;
+  background-color: ${colors.grayBackground};
+  border: 1px solid ${colors.grayBorder};
 `;
 
 const InnerHeight = styled.div`

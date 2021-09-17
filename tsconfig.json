@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    "baseUrl": "pages",
     "allowSyntheticDefaultImports": true,
     "jsx": "preserve",
     "target": "es5",

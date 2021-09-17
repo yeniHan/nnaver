@@ -4,7 +4,7 @@ import METHODS from '../../../@constants/METHODS';
 
 const getRealTimeNews = async () => {
   const data = await request({
-    url: APIS.GET_REAL_TIME_NEWS,
+    url: APIS.REAL_TIME_NEWS,
     method: METHODS.GET,
     isAuth: false,
   });

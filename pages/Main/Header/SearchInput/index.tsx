@@ -23,6 +23,7 @@ const DropdownArrow = styled.button(({ folded }) => css`
   height: 5px;
   background-position: ${ folded ? '-96px -296px': '-108px -296px'};
   margin: 22px 9px;
+  cursor: pointer;
 `);
 
 const SearchICWrapper = styled.div`

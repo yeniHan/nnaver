@@ -14,7 +14,7 @@ const Wrapper = styled.div`
 const MainContent = () => {
   return (
     <Wrapper>
-      <Banner src={bannerImg} />
+      <Banner src={bannerImg} layout="responsive" />
       <NewsStand />
     </Wrapper>
   );

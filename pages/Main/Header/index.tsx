@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import Index from './SearchInput';
+import SearchInput from './SearchInput';
 import TopLine from './TopLine';
 import { commonIconCSS } from '../@styles/index';
 
@@ -27,7 +27,7 @@ const Header = () => {
       <TopLine />
       <SearchInputArea>
         <Logo href="https://www.naver.com/" />
-        <Index />
+        <SearchInput />
       </SearchInputArea>
     </Wrapper>
   );

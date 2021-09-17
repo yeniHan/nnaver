@@ -1,4 +1,4 @@
-import mainMenus from './dummyData/main_menus';
+import mainMenus from './dummyData/mainMenus';
 import METHODS from '../@constants/METHODS';
 
 

@@ -2,18 +2,17 @@ import request from '../../utills/request';
 import APIS from '../../../@constants/APIS';
 import METHODS from '../../../@constants/METHODS';
 
-const deleteRecentSearchedWords = async ({ all, id }: { all?: boolean; id?: string }) => {
+const deleteNewsStandsMedia = async ({ media }:{ media: string }) => {
   const data = await request({
-    url: APIS.RECENT_SEARCHED_WORDS,
+    url: APIS.NEWS_STANDS_SUBSCRIPTION,
     method: METHODS.DELETE,
+    isAuth: true,
     data: {
-      all,
-      id,
-    },
-    isAuth: false,
+      media,
+    }
   });
 
   return data;
 };
 
-export default deleteRecentSearchedWords;
+export default deleteNewsStandsMedia;
