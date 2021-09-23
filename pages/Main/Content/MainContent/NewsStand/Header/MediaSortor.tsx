@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import { commonIconCSS } from '../../../../@styles';
 import { useFormContext, useWatch } from "react-hook-form";
 import { MEDIA_SORTERS, MEDIA_SORTER } from '../../../../../@constants/MEDIA_SORTERS';
+import { TABLET_WIDTH } from '@constants/MEDIA_WITHES';
 
 const Wrapper = styled.div`
   input {
@@ -13,6 +14,10 @@ const Wrapper = styled.div`
 const Title = styled.span`
   font-weight: bold;
   font-size: 14px;
+
+  @media (max-width: ${TABLET_WIDTH}) {
+    font-size: 11px;
+  }
 `;
 
 const NewspaperIc = styled.span`
@@ -48,6 +53,10 @@ const MediaSelectType = styled.label`
 
   &:first-of-type {
     margin-left: 6px;
+  }
+
+  @media (max-width: ${TABLET_WIDTH}) {
+    font-size: 11px;
   }
 `;
 

@@ -5,10 +5,15 @@ import DustInfo from './DustInfo';
 import WeatherInfo from './WeatherInfo';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import {Autoplay} from "swiper";
+import { TABLET_WIDTH } from '@constants/MEDIA_WITHES';
 
 const Wrapper = styled.div`
   width: 260px !important;
   height: 100%;
+
+  @media (max-width: ${TABLET_WIDTH}) {
+    display: none !important;
+  }
 `;
 
 const InnerSlide = styled.div`

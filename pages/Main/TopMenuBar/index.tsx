@@ -6,6 +6,7 @@ import TopMenuBarIcons from './TopMenuBarIcons';
 import colors from '../../@styles/Colors';
 import RealTimeWeatherInfoSlider from './RealTimeWeatherInfoSlider';
 import FoldingMenu from './FoldingMenu';
+import { TABLET_WIDTH, MOBILE_WIDTH } from '@constants/MEDIA_WITHES';
 
 const Wrapper = styled.div`
   padding: 0 30px;
@@ -16,6 +17,12 @@ const Wrapper = styled.div`
   box-shadow: 0 1px 3px 0 rgb(0 0 0 / 12%);
   margin-top: 35px;
   position: relative;
+
+  @media (max-width: ${TABLET_WIDTH}) {
+    padding: 0 15px;
+    margin-top: 15px;
+    height: 38px;
+  }
 `;
 
 const MenuWrapper = styled.ul`
@@ -28,20 +35,36 @@ const MenuWrapper = styled.ul`
     margin-right: 10px;
     align-items: center;
     word-break: keep-all;
+    font-size: 12px;
     
     &:last-child {
       margin-right: 0;
     }
-  }
+
+    @media (max-width: ${TABLET_WIDTH}) {
+      font-size: 11px;
+    }
 `;
 
 const PrimaryMenuItem = styled.li`
-  a { 
-    color: ${colors.naverGreen};
-  }
-  
   cursor: pointer;
   display: flex;
+`;
+
+const PrimaryMenuText = styled.a`
+  color: ${colors.naverGreen};
+
+  @media (max-width: ${TABLET_WIDTH}) {
+    &:before {
+      content: "${({ tabletText }) => tabletText}";
+    }
+  }
+`;
+
+const NonPrimaryMenuItem = styled.li`
+  @media (max-width: ${TABLET_WIDTH}) {
+    display: none !important;
+  }
 `;
 
 const SeeMoreBtn = styled.button(({ folded }) => css`
@@ -57,6 +80,14 @@ const SeeMoreBtn = styled.button(({ folded }) => css`
   span:hover {
     text-decoration: underline;
     ${!folded && `text-decoration-color: ${colors.naverGreen}`};
+  }
+
+  @media (max-width: ${TABLET_WIDTH}) {
+    font-size: 11px;
+  }
+
+  @media (max-width: ${MOBILE_WIDTH}) {
+    display: none;
   }
 `);
 
@@ -94,15 +125,15 @@ const TopMenuBar = () => {
           return (
             <PrimaryMenuItem key={v?.id}>
               {v?.hasIcon && <Ic />}
-              {v?.text && <a href={v?.url}>{v?.text}</a>}
+              {(v?.text || v?.tabletText) && <PrimaryMenuText href={v?.url} tabletText={v?.tabletText}>{v?.text}</PrimaryMenuText>}
             </PrimaryMenuItem>
           );
         })}
         {
           nonPrimary?.map((v) => (
-            <li key={v?.id}>
+            <NonPrimaryMenuItem key={v?.id}>
               <a href={v?.url}>{v?.text}</a>
-            </li>
+            </NonPrimaryMenuItem>
           ))}
         <SeeMoreBtn onClick={onClickSeeMoreBtn} folded={folded}>
           <span>{folded ? '더보기' : '접기'}</span>

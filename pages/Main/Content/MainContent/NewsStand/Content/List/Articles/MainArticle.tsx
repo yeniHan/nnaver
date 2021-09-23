@@ -1,9 +1,14 @@
 import React from 'react';
 import styled from 'styled-components';
 import Article from 'types/Article';
+import { MOBILE_WIDTH } from '@constants/MEDIA_WITHES';
 
 const Wrapper = styled.a`
   width: 196px;
+
+  @media (max-width: ${MOBILE_WIDTH}) {
+    display: none;
+  }
 `;
 
 const Img = styled.img`

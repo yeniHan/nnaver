@@ -5,6 +5,7 @@ import Media from './Media';
 import colors from '@styles/Colors';
 import { useFormContext } from "react-hook-form";
 import { MEDIA } from "../../../../../@constants/FIELD_NAMES";
+import { MOBILE_WIDTH } from '@constants/MEDIA_WITHES';
 
 const Wrapper = styled.div`
   padding: 7px 14px;
@@ -13,6 +14,10 @@ const Wrapper = styled.div`
   background-color: ${colors.grayBackground};
   border: 1px solid ${colors.grayBorder};
   border-left: 1px solid ${colors.grayBorder};
+
+  @media (max-width: ${MOBILE_WIDTH}) {
+    display: none;
+  }
 `;
 
 

@@ -34,6 +34,7 @@ const mainMenus = {
       {
         id: '6',
         hasIcon: true,
+        tabletText: 'Live쇼핑',
         url: 'https://shoppinglive.naver.com/home'
       },
       {

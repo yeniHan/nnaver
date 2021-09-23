@@ -4,11 +4,16 @@ import colors from '../../../@styles/Colors';
 import deleteRecentSearchedWords from '../../../front-apis/apis/main/deleteRecentSearchedWords';
 import { commonIconCSS2 } from '../../@styles/index';
 import getRecentSearchedWordsApi from "../../../front-apis/apis/main/getRecentSearchedWords";
+import { TABLET_WIDTH } from '@constants/MEDIA_WITHES';
 
 const Wrapper = styled.div`
   border: 1px solid ${colors.gray1};
   border-top: 0;
   border-radius: 0 0 6px 6px;
+  width: 532px;
+  z-index: 3;
+  background-color: white;
+  position: absolute;
   
   > div {
     padding: 7px 8px;
@@ -16,6 +21,10 @@ const Wrapper = styled.div`
   
   > li {
     padding: 5px 8px;
+  }
+
+  @media (max-width: ${TABLET_WIDTH}) {
+    width: calc(100% - 32px);
   }
 `;
 

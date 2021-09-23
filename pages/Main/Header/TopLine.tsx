@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { commonIconCSS } from '../@styles/index';
 import colors from '../../@styles/Colors';
+import { TABLET_WIDTH } from '@constants/MEDIA_WITHES';
 
 const Wrapper = styled.div`
   width: 100%;
@@ -10,6 +11,10 @@ const Wrapper = styled.div`
   margin-top: 10px;
   margin-bottom: 35px;
   align-items: center;
+
+  @media (max-width: ${TABLET_WIDTH}) {
+    display: none !important;
+  }
 `;
 
 const MakeStartPage = styled.div`

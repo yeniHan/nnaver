@@ -5,11 +5,16 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay } from "swiper";
 import { commonIconCSS } from '../../../@styles';
 import colors from '../../../../@styles/Colors';
+import { TABLET_WIDTH } from '@constants/MEDIA_WITHES';
 
 const Wrapper = styled.div`
   width: 100%;
   background-color: ${colors.grayBackground};
   border: 1px solid ${colors.grayBorder};
+
+  @media (max-width: ${TABLET_WIDTH}) {
+    display: none;
+  }
 `;
 
 const InnerHeight = styled.div`

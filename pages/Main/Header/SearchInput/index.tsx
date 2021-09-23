@@ -3,8 +3,15 @@ import styled, { css } from 'styled-components';
 import colors from '../../../@styles/Colors';
 import RecentSearchedWords from './RecentSearchedWords';
 import { commonIconCSS } from '../../@styles/index';
+import { TABLET_WIDTH } from '@constants/MEDIA_WITHES';
 
 const Wrapper = styled.div`
+  @media (max-width: ${TABLET_WIDTH}) {
+    width: 100%;
+  }
+`;
+
+const InputWrapper = styled.div`
   display: flex;
   border: 2px solid ${colors.naverGreen};
   border-radius: 2px;
@@ -15,6 +22,10 @@ const Wrapper = styled.div`
 const Input = styled.input`
   width: 474px;
   padding: 13px 15px;
+
+  @media (max-width: ${TABLET_WIDTH}) {
+    width: 100%;
+  }
 `;
 
 const DropdownArrow = styled.button(({ folded }) => css`
@@ -50,16 +61,16 @@ const SearchInput = () => {
   };
 
   return (
-    <div>
-      <Wrapper>
+    <Wrapper>
+      <InputWrapper>
         <Input />
         <DropdownArrow folded={folded} onClick={onClickDropdownArrow} />
         <SearchICWrapper>
           <SearchIC />
         </SearchICWrapper>
-      </Wrapper>
+      </InputWrapper>
       <RecentSearchedWords folded={folded} />
-    </div>
+    </Wrapper>
   );
 };
 

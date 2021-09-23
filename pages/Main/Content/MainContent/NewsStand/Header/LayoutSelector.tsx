@@ -3,6 +3,8 @@ import styled from 'styled-components';
 import { commonIconCSS } from '../../../../@styles';
 import { useFormContext, useWatch } from "react-hook-form";
 import { LAYOUT, LAYOUT_OPTIONS } from '@constants/LAYOUT_SELECTOR';
+import { TABLET_WIDTH } from '@constants/MEDIA_WITHES';
+
 
 const Wrapper = styled.div`
   display: flex;
@@ -10,6 +12,10 @@ const Wrapper = styled.div`
   
   input {
     visibility: hidden;
+  }
+
+  @media (max-width: ${TABLET_WIDTH}) {
+    display: none;
   }
 `;
 

@@ -1,17 +1,23 @@
 import React, { useEffect, useState, useMemo } from 'react';
 import styled from 'styled-components';
 import {useFormContext, useWatch} from "react-hook-form";
-import {MEDIA_SORTER, MEDIA_SORTERS} from '../../../../../../@constants/MEDIA_SORTERS';
+import { MEDIA_SORTER } from '../../../../../../@constants/MEDIA_SORTERS';
 import MediaList from './MediaList';
 import Articles from './Articles';
 import getNewsStandsArticles from 'front-apis/apis/main/getNewsStandsArticles';
 import useAsync from "../../../../../../@utils/useAsync";
 import {MEDIA} from "../../../../@constants/FIELD_NAMES";
 import useInterval from "@utils/useInterval";
+import { MOBILE_WIDTH } from '@constants/MEDIA_WITHES';
+
 
 const Wrapper = styled.div`
   width: 100%;
   display: flex;
+
+  @media (max-width: ${MOBILE_WIDTH}) {
+    flex-direction: column;
+  }
 `;
 
 

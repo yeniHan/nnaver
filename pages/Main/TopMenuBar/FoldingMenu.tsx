@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { mainMenuType } from './types';
+import { TABLET_WIDTH, MOBILE_WIDTH } from '@constants/MEDIA_WITHES';
 
 const Wrapper = styled.div`
   position: absolute;
@@ -13,8 +13,16 @@ const Wrapper = styled.div`
   border-top: 1px solid #e4e8eb;
   -webkit-box-shadow: 0 4px 4px 0 rgb(0 0 0 / 12%);
   box-shadow: 0 4px 4px 0 rgb(0 0 0 / 12%);
-  z-index: 1;
+  z-index: 2;
   display: flex;
+
+  @media (max-width: ${TABLET_WIDTH}) {
+    top: 40px;
+  }
+
+  @media (max-width: ${MOBILE_WIDTH}) {
+    display: none;
+  }
 `;
 
 
@@ -42,6 +50,10 @@ const MenuName = styled.a`
   
   :hover {
     text-decoration: underline;
+  }
+
+  @media (max-width: ${TABLET_WIDTH}) {
+    font-size: 11px;
   }
 `;
 

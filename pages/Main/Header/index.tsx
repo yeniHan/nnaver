@@ -3,9 +3,15 @@ import styled from 'styled-components';
 import SearchInput from './SearchInput';
 import TopLine from './TopLine';
 import { commonIconCSS } from '../@styles/index';
+import { TABLET_WIDTH } from '@constants/MEDIA_WITHES';
 
 const Wrapper = styled.div`
   padding: 0 30px;
+
+  @media (max-width: ${TABLET_WIDTH}) {
+    padding: 0 15px;
+    padding-top: 15px;
+  }
 `;
 
 const Logo = styled.a`
@@ -15,6 +21,10 @@ const Logo = styled.a`
   background-position: 0 -158px;
   display: block;
   margin-right: 18px;
+
+  @media (max-width: ${TABLET_WIDTH}) {
+    display: none !important;
+  }
 `;
 
 const SearchInputArea = styled.div`

@@ -1,5 +1,12 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import { commonIconCSS } from '../@styles/index';
+import { TABLET_WIDTH } from '@constants/MEDIA_WITHES';
+
+const hideInTabletCss = css`
+  @media (max-width: ${TABLET_WIDTH}) {
+    display: none;
+  }
+`;
 
 const MailIc = styled.div`
   ${commonIconCSS};
@@ -8,6 +15,7 @@ const MailIc = styled.div`
   background-position: -420px -279px;
   display: inline-block;
   margin-right: 9px;
+  ${hideInTabletCss};
 `;
 
 const ShoppingLiveIc = styled.div`
@@ -16,6 +24,7 @@ const ShoppingLiveIc = styled.div`
   height: 20px;
   background-position: -202px -306px;
   display: inline-block;
+  ${hideInTabletCss};
 `;
 
 const PlayIc = styled.div`
@@ -25,6 +34,7 @@ const PlayIc = styled.div`
   background-position: -256px -212px;
   display: inline-block;
   margin-right: 4px;
+  ${hideInTabletCss};
 `;
 
 export default {
