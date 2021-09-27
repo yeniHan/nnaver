@@ -9,12 +9,12 @@ export default function handler (req, res) {
   else if (req.method === METHODS.POST) {
     const newMedia = req.body.media;
     nsO.add(newMedia);
-    res.status(200).toJS(nsO.get());
+    res.status(200).json(nsO.get());
   }
 
   else if (req.method === METHODS.DELETE) {
     const newMedia = req.body.media;
     nsO.delete(newMedia);
-    res.status(200).toJS(nsO.get());
+    res.status(200).json(nsO.get());
   }
 }

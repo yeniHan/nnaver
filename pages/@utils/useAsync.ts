@@ -39,7 +39,7 @@ function reducer (state: State, action: Action) {
 
 
 
-function useAsync (callback, args = [], deps) {
+function useAsync (callback, args = [], deps = []) {
   const [state, dispatch] = useReducer(reducer, {
     loading: false,
     data: null,
@@ -60,7 +60,7 @@ function useAsync (callback, args = [], deps) {
     fetchData();
     // eslint 설정을 다음 줄에서만 비활성화
     // eslint-disable-next-line
-    }, deps);
+  }, deps);
 
   return [state, fetchData];
 }

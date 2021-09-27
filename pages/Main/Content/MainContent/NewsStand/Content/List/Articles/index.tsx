@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import styled from 'styled-components';
 import Article from 'types/Article';
 import MainArticle from './MainArticle';

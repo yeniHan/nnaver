@@ -9,12 +9,12 @@ class NewsStandSetting {
       this.subscribedMedias = newSubscribedMedias;
     }
 
-    add (mediaName) {
-      this.subscribedMedias.push(mediaName);
+    add (media) {
+      this.subscribedMedias.push(media);
     }
 
-    delete (mediaName) {
-      this.subscribedMedias = this.subscribedMedias.filter((v) => v !== mediaName);
+    delete (media) {
+      this.subscribedMedias = this.subscribedMedias.filter((v) => v !== media);
     };
 }
 

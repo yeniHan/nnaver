@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useState} from 'react';
 import styled from 'styled-components';
 import MediaType from 'types/Media';
 import Media from './Media';
@@ -6,6 +6,7 @@ import colors from '@styles/Colors';
 import { useFormContext } from "react-hook-form";
 import { MEDIA } from "../../../../../@constants/FIELD_NAMES";
 import { MOBILE_WIDTH } from '@constants/MEDIA_WITHES';
+import useInterval from "../../../../../../../@utils/useInterval";
 
 const Wrapper = styled.div`
   padding: 7px 14px;
@@ -23,10 +24,15 @@ const Wrapper = styled.div`
 
 const MediaList = ({ medias }: { medias: MediaType[] }) => {
   const { setValue } = useFormContext();
+  const [curMediaIdx, setCurMediaIdx] = useState(0);
 
-  useEffect(() => {
-    if(medias?.length > 0) setValue(MEDIA, medias[0]);
-  }, [medias]);
+  const selectNextMedia = () => {
+    const nextIdx = curMediaIdx === medias?.length - 1? 0 : curMediaIdx + 1;
+    setCurMediaIdx(nextIdx);
+    setValue(MEDIA, medias[nextIdx]);
+  };
+
+  useInterval(selectNextMedia, 5000);
 
   return (
     <Wrapper>

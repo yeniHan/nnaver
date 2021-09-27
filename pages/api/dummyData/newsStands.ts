@@ -2,17 +2,25 @@
 export const medias = [
   {
     id: 'KM',
-    name: '국민일보'
+    name: '국민일보',
+    imgUrl: 'https://s.pstatic.net/static/newsstand/2020/logo/light/0604/005.png',
+    newsStandUrl: 'https://newsstand.naver.com/?list=&pcode=005'
   },
   {
     id: 'HG',
-    name: '한겨례'
+    name: '한겨례',
+    imgUrl: 'https://s.pstatic.net/static/newsstand/2020/logo/light/0604/028.png',
+    newsStandUrl: 'https://newsstand.naver.com/?list=&pcode=028',
   }, {
     id: 'MG',
-    name: '매일경제'
+    name: '매일경제',
+    imgUrl: 'https://s.pstatic.net/static/newsstand/2020/logo/light/0604/009.png',
+    newsStandUrl: 'https://newsstand.naver.com/?list=&pcode=009',
   }, {
     id: 'KMD',
-    name: '코메디닷컴'
+    name: '코메디닷컴',
+    imgUrl: 'https://s.pstatic.net/static/newsstand/2020/logo/light/0604/296.png',
+    newsStandUrl: 'https://newsstand.naver.com/?list=&pcode=296',
   }];
 
 export const articles = [
