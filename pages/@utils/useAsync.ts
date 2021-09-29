@@ -9,7 +9,7 @@ type State = {
 type Action = {
   type: string;
   data?: any;
-  error?: any;
+  error?: boolean;
 };
 
 function reducer (state: State, action: Action) {

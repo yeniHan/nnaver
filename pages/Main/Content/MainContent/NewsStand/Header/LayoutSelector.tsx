@@ -19,7 +19,7 @@ const Wrapper = styled.div`
   }
 `;
 
-const SubscribedIcBtn = styled.label`
+const ListIcBtn = styled.label`
   ${commonIconCSS};
   width: 14px;
   height: 13px;
@@ -27,12 +27,19 @@ const SubscribedIcBtn = styled.label`
   cursor: pointer;
 `;
 
-const AllIcBtn = styled.label`
+const TableIcBtn = styled.label`
   ${commonIconCSS};
   width: 13px;
   height: 13px;
   background-position: ${({ selected }) => selected ? `-185px -337px`: `-170px -337px`};
   cursor: pointer;
+`;
+
+const SettingBtn = styled.a`
+  ${commonIconCSS};
+  width: 15px;
+  height: 15px;
+  background-position: -47px -396px;
 `;
 
 const LayoutSelector = () => {
@@ -43,20 +50,21 @@ const LayoutSelector = () => {
 
   return (
     <Wrapper>
-      <SubscribedIcBtn htmlFor={LAYOUT_OPTIONS.LIST} selected={selectedLayout === LAYOUT_OPTIONS.LIST}/>
+      <ListIcBtn htmlFor={LAYOUT_OPTIONS.LIST} selected={selectedLayout === LAYOUT_OPTIONS.LIST}/>
       <input
         {...register(LAYOUT)}
         type="radio"
         id={LAYOUT_OPTIONS.LIST}
         value={LAYOUT_OPTIONS.LIST}
       />
-      <AllIcBtn htmlFor={LAYOUT_OPTIONS.TABLE} selected={selectedLayout === LAYOUT_OPTIONS.TABLE} />
+      <TableIcBtn htmlFor={LAYOUT_OPTIONS.TABLE} selected={selectedLayout === LAYOUT_OPTIONS.TABLE} />
       <input
         {...register(LAYOUT)}
         type="radio"
         id={LAYOUT_OPTIONS.TABLE}
         value={LAYOUT_OPTIONS.TABLE}
       />
+      <SettingBtn href="https://newsstand.naver.com/config.html" target="_blank" />
     </Wrapper>
   );
 };

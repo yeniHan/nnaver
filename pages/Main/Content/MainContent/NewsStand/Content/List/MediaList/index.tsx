@@ -6,7 +6,7 @@ import colors from '@styles/Colors';
 import { useFormContext } from "react-hook-form";
 import { MEDIA } from "../../../../../@constants/FIELD_NAMES";
 import { MOBILE_WIDTH } from '@constants/MEDIA_WITHES';
-import useInterval from "../../../../../../../@utils/useInterval";
+import useInterval from "@utils/useInterval";
 
 const Wrapper = styled.div`
   padding: 7px 14px;

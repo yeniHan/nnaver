@@ -17,7 +17,7 @@ const Wrapper = styled.div`
   display: flex;
 
   @media (max-width: ${TABLET_WIDTH}) {
-    top: 40px;
+    top: 38px;
   }
 
   @media (max-width: ${MOBILE_WIDTH}) {
