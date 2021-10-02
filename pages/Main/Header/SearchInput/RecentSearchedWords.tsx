@@ -1,10 +1,12 @@
-import React, { useEffect, useState } from 'react';
-import styled, { css } from 'styled-components';
+import React, { useEffect } from 'react';
+import styled from 'styled-components';
 import colors from '../../../@styles/Colors';
 import deleteRecentSearchedWords from '../../../front-apis/apis/main/deleteRecentSearchedWords';
 import { commonIconCSS2 } from '../../@styles/index';
-import getRecentSearchedWordsApi from "../../../front-apis/apis/main/getRecentSearchedWords";
+import getRecentSearchedWords from "../../../front-apis/apis/main/getRecentSearchedWords";
 import { TABLET_WIDTH } from '@constants/MEDIA_WITHES';
+import useSWR from "swr";
+import APIS from '@constants/APIS';
 
 const Wrapper = styled.div`
   border: 1px solid ${colors.gray1};
@@ -94,25 +96,17 @@ const BottomLine = styled.div`
 
 
 const RecentSearchedWords = ({ folded }: { folded: boolean }) => {
-  const [recentSearchedWords, setRecentSearchedWords ] = useState([]);
-
-  const getRecentSearchedWords = () => {
-    getRecentSearchedWordsApi().then((data) => {
-      setRecentSearchedWords(data);
-    });
-  };
+  const { data: recentSearchedWords, mutate } = useSWR(APIS.RECENT_SEARCHED_WORDS, getRecentSearchedWords);
 
   const deleteItem = (id?: string, all = false) => {
     deleteRecentSearchedWords({
       all,
       id,
-    }).then(() => getRecentSearchedWords());
+    }).then(() => mutate());
   };
 
   useEffect(() => {
-    if (!folded) {
-      getRecentSearchedWords();
-    }
+    if (!folded) mutate();
   }, [folded]);
 
   if (folded) return null;

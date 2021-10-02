@@ -27,6 +27,7 @@ const MediaList = ({ medias }: { medias: MediaType[] }) => {
   const [curMediaIdx, setCurMediaIdx] = useState(0);
 
   const selectNextMedia = () => {
+    if (!medias) return;
     const nextIdx = curMediaIdx === medias?.length - 1? 0 : curMediaIdx + 1;
     setCurMediaIdx(nextIdx);
     setValue(MEDIA, medias[nextIdx]);

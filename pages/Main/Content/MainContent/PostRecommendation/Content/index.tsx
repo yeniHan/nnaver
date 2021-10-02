@@ -1,9 +1,8 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import styled from 'styled-components';
-import { TABLET_WIDTH } from '@constants/MEDIA_WITHES';
-import { useFormContext } from "react-hook-form";
 import getRecommendedPosts from 'front-apis/apis/main/getRecommendedPosts';
-import { POSTS } from './@constants/FIELD_NAMES';
+import useSWR from 'swr';
+import APIS from '@constants/APIS';
 
 
 const Wrapper = styled.div`
@@ -11,10 +10,7 @@ const Wrapper = styled.div`
 `;
 
 const Content = () => {
-
-  useEffect(() => {
-    const posts = getRecommendedPosts();
-  }, []);
+  const { data } = useSWR(APIS.RECOMMENDED_POSTS, getRecommendedPosts);
 
   return (
     <Wrapper>

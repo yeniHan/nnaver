@@ -11,29 +11,7 @@ import { commonIconCSS } from 'Main/@styles';
 
 const Wrapper = styled.div`
   width: 100%;
-  position: relative;
 `;
-
-const PrevBtn = styled.button`
-  ${commonIconCSS};
-  width: 44px;
-  height: 44px;
-  background-position: 0 -306px;
-  position: absolute;
-  top: 96px;
-  left: -25px;
-`;
-
-const NextBtn = styled.button`
-  ${commonIconCSS};
-  width: 44px;
-  height: 44px;
-  background-position: -224px -158px;
-  position: absolute;
-  top: 96px;
-  right: -25px;
-`;
-
 
 const Content = () => {
   const { setValue } = useFormContext();
@@ -54,9 +32,7 @@ const Content = () => {
 
   return (
     <Wrapper>
-      <PrevBtn/>
       {selectedLayout === LAYOUT_OPTIONS.LIST ? <List  /> : <Table />}
-      <NextBtn/>
     </Wrapper>
   );
 };

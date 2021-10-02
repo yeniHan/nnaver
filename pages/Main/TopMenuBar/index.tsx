@@ -1,12 +1,14 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import styled, { css } from 'styled-components';
 import getMainMenus from '../../front-apis/apis/main/getMainMenus';
+import useSWR from 'swr';
 import { commonIconCSS } from '../@styles/index';
 import TopMenuBarIcons from './TopMenuBarIcons';
 import colors from '../../@styles/Colors';
 import RealTimeWeatherInfoSlider from './RealTimeWeatherInfoSlider';
 import FoldingMenu from './FoldingMenu';
 import { TABLET_WIDTH, MOBILE_WIDTH } from '@constants/MEDIA_WITHES';
+import APIS from '@constants/APIS';
 
 const Wrapper = styled.div`
   padding: 0 30px;
@@ -100,18 +102,10 @@ const ArrowBtn = styled.button(({ folded }) => css`
 `);
 
 const TopMenuBar = () => {
-  const [mainMunus, setMainMenus]= useState();
-  const [foldingMenus, setFoldingMenu] = useState();
-  const primary = mainMunus?.primary;
-  const nonPrimary = mainMunus?.nonPrimary;
+  const { data } = useSWR(APIS.MAIN_MENUS, getMainMenus);
+  const primary = data?.topBar?.primary;
+  const nonPrimary = data?.topBar?.nonPrimary;
   const [folded, setFolded] = useState(true);
-
-  useEffect( () => {
-    getMainMenus().then((data) => {
-      setMainMenus(data?.topBar);
-      setFoldingMenu(data?.topBarFolding);
-    });
-  }, []);
 
   const onClickSeeMoreBtn = () => {
     setFolded((prev) => !prev);
@@ -139,7 +133,7 @@ const TopMenuBar = () => {
           <span>{folded ? '더보기' : '접기'}</span>
           <ArrowBtn folded={folded} />
         </SeeMoreBtn>
-        <FoldingMenu menus={foldingMenus} folded={folded} />
+        <FoldingMenu menus={data?.topBarFolding} folded={folded} />
       </MenuWrapper>
       <RealTimeWeatherInfoSlider />
     </Wrapper>

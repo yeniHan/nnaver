@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useState} from 'react';
 import styled from 'styled-components';
 import getRealTimeNews from '../../../../front-apis/apis/main/getRealTimeNews';
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -6,6 +6,8 @@ import { Autoplay } from "swiper";
 import { commonIconCSS } from '../../../@styles';
 import colors from '../../../../@styles/Colors';
 import { TABLET_WIDTH } from '@constants/MEDIA_WITHES';
+import useSWR from "swr";
+import APIS from '@constants/APIS';
 
 const Wrapper = styled.div`
   width: 100%;
@@ -61,13 +63,7 @@ const Title = styled.a`
 
 const RealTimeNews = () => {
   const [curMediaIdx, setCurMediIdx] = useState(0);
-  const [realTimeNews, setRealTimeNews] = useState([]);
-
-  useEffect(() => {
-    getRealTimeNews().then((data) => {
-      setRealTimeNews(data);
-    });
-  }, []);
+  const { data: realTimeNews } = useSWR(APIS.REAL_TIME_NEWS, getRealTimeNews);
 
   return (
     <Wrapper>
@@ -75,20 +71,20 @@ const RealTimeNews = () => {
         <Media>{realTimeNews?.[curMediaIdx]?.media}</Media>
         <ArrowIc />
         {realTimeNews &&
-        <Swiper
-          modules={[Autoplay]}
-          direction={'vertical'}
-          autoplay={{ delay: 1000}}
-          onAutoplay={(v) => {
-            setCurMediIdx(v?.realIndex);
-          }}
-          loop={true}>
-          {realTimeNews?.map((v) => (
-            <SwiperSlide key={v?.url}>
-              <Title href={v?.url}>{v?.title}</Title>
-            </SwiperSlide>
-          ))}
-        </Swiper>
+         <Swiper
+           modules={[Autoplay]}
+           direction={'vertical'}
+           autoplay={{ delay: 1000}}
+           onAutoplay={(v) => {
+             setCurMediIdx(v?.realIndex);
+           }}
+           loop={true}>
+           {realTimeNews?.map((v) => (
+             <SwiperSlide key={v?.url}>
+               <Title href={v?.url}>{v?.title}</Title>
+             </SwiperSlide>
+           ))}
+         </Swiper>
         }
       </InnerHeight>
     </Wrapper>

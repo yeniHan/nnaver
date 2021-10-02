@@ -17,7 +17,7 @@ export default function handler (req, res) {
         data: {
           articles: subscribedArticles,
           medias: subscribedMedias,
-        },
+        }
       });
     }
 
@@ -26,7 +26,7 @@ export default function handler (req, res) {
         data: {
           articles,
           medias,
-        },
+        }
       });
     }
   }

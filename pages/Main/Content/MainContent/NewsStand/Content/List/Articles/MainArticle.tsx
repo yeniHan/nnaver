@@ -13,6 +13,8 @@ const Wrapper = styled.a`
 
 const Img = styled.img`
   width: 100%;
+  height: 130px;
+  object-fit: contain;
 `;
 
 const Title = styled.div`

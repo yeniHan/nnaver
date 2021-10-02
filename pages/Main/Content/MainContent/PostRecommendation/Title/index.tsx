@@ -32,22 +32,20 @@ const SettingIc = styled.span`
 `;
 
 const Title = () => {
-    const postsNum = useWatch();
-return (
-
+  // const postsNum = useWatch();
+  return (
     <Wrapper>
-        <div>
+      <div>
         <TitleText>오늘 읽을만한 글</TitleText>
         <SubTitle>주제별로 분류된 다양한 글 모음</SubTitle>
-        </div>
-        <div>
-            <GrayText>{postsNum}개의 글</GrayText>
-            <Devider />
-            <SettingIc />
-            <
-        </div>
+      </div>
+      <div>
+        {/*<GrayText>{postsNum}개의 글</GrayText>*/}
+        <Devider />
+        <SettingIc />
+      </div>
     </Wrapper>
-)
-}
+  );
+};
 
 export default Title;
