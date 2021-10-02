@@ -15,6 +15,7 @@ const Img = styled.img`
   width: 100%;
   height: 130px;
   object-fit: contain;
+  background-color: black;
 `;
 
 const Title = styled.div`

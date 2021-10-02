@@ -24,7 +24,6 @@ const useGetArticlesAndMedias = (recallDeps = []) => {
   }, [recallDeps]);
 
   useEffect(() => {
-    console.log(data)
     if (!!data?.medias) {
       setValue(MEDIAS, data?.medias);
       const firstMedia = data?.medias?.[0];
