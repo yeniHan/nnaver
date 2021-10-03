@@ -1,12 +1,10 @@
-import React, {useEffect} from 'react';
+import React from 'react';
 import styled from 'styled-components';
-import Article from 'types/Article';
 import MainArticle from './MainArticle';
 import colors from '@styles/Colors';
 import { ellipsisCss } from '@styles';
-import { useWatch } from "react-hook-form";
-import { MEDIA } from "../../../../../@constants/FIELD_NAMES";
 import { MOBILE_WIDTH } from '@constants/MEDIA_WITHES';
+import useArticlesAndMedias from "../../@hooks/useArticlesAndMedias";
 
 const Wrapper = styled.div`
   padding: 17px 24px;
@@ -51,10 +49,8 @@ const Title = styled.a`
 
 
 
-const Articles = ({ articles }: { articles: Article[]}) => {
-  const selectedMedia = useWatch({
-    name: MEDIA,
-  });
+const Articles = () => {
+  const { articles, selectedMedia } = useArticlesAndMedias();
 
   if (articles?.length <= 0) return null;
 

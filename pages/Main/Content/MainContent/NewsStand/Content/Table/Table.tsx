@@ -1,9 +1,7 @@
-import React, {useEffect, useMemo} from 'react';
+import React, { useMemo} from 'react';
 import styled from 'styled-components';
-import Media from "types/Media";
-import Index from './Td';
-import {useWatch} from "react-hook-form";
-import {ARTICLES, MEDIAS} from "../../../../@constants/FIELD_NAMES";
+import Td from './Td';
+import useArticlesAndMedias from "../@hooks/useArticlesAndMedias";
 
 const Wrapper = styled.table`     
   width: 100%;         
@@ -14,9 +12,7 @@ const Tr = styled.tr`
 `;
 
 const Table = () => {
-  const medias = useWatch({
-    name: MEDIAS,
-  });
+  const { medias } = useArticlesAndMedias();
 
 
   const mediaTables = useMemo(() => {
@@ -38,7 +34,7 @@ const Table = () => {
       {mediaTables?.map((rowMedias) => (
         <Tr key={rowMedias?.[0]?.name}>
           {rowMedias?.map((media) => (
-            <Index key={media?.id} media={media}/>
+            <Td key={media?.id} media={media}/>
           ))}
         </Tr>))
       }

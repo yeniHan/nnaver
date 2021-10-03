@@ -1,8 +1,8 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import styled from 'styled-components';
-import { TABLET_WIDTH } from '@constants/MEDIA_WITHES';
 import Title from './Title';
 import Content from './Content';
+import CategoryNavigator from './CategoryNavigator';
 import { useForm, FormProvider } from "react-hook-form";
 
 
@@ -17,6 +17,7 @@ const PostRecommendation = () => {
     <Wrapper>
       <FormProvider {...methods}>
         <Title />
+        <CategoryNavigator />
         <Content />
       </FormProvider>
     </Wrapper>

@@ -114,7 +114,7 @@ const RecentSearchedWords = ({ folded }: { folded: boolean }) => {
   return (
     <Wrapper>
       <Title>
-        <span>최근 검색어</span><span>전체 삭제</span>
+        <span>최근 검색어</span><span onClick={() => deleteItem(null, true)}>전체 삭제</span>
       </Title>
       {recentSearchedWords?.map(({ id, words, date }) => (
         <Item key={id}>

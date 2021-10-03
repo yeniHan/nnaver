@@ -1,7 +1,5 @@
-import RecentSearchedWordsModel from './dummyDataModels/RecentSearchedWords';
+import dtO from './dummyDataModels/RecentSearchedWords';
 import METHODS from '../@constants/METHODS';
-
-const dtO = new RecentSearchedWordsModel();
 
 export default function handler (req, res) {
   if (req.method === METHODS.DELETE) {

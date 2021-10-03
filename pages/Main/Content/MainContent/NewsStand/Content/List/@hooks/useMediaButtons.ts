@@ -1,15 +1,13 @@
 import { useCallback } from "react";
 import {useWatch, useFormContext} from "react-hook-form";
-import {MEDIAS, MEDIA} from "../../../../../@constants/FIELD_NAMES";
+import {MEDIA} from "../../../../../@constants/FIELD_NAMES";
+import useArticlesAndMedias from "../../@hooks/useArticlesAndMedias";
 
 
 
 const useMediaButtons = () => {
   const { setValue } = useFormContext();
-
-  const medias = useWatch({
-    name: MEDIAS,
-  });
+  const { medias } = useArticlesAndMedias();
 
   const selectedMedia = useWatch({
     name: MEDIA,

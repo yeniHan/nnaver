@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import Media from "types/Media";
 import colors from '@styles/Colors';
 import deleteNewsStandsMedia from 'front-apis/apis/main/deleteNewsStandsMedia';
-import useGetArticlesAndMedias from '../@hooks/useGetArticlesAndMedias';
+import useGetArticlesAndMedias from '../@hooks/useInitArticlesAndMedias';
 
 const Wrapper = styled.td`
   border: 1px solid ${colors?.grayBorder};

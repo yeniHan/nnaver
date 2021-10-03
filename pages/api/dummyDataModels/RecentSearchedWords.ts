@@ -29,7 +29,7 @@ class RecentSearchedWords {
   ];
 
   delete (id, all = false) {
-    if(all) this.data = [];
+    if (all) this.data = [];
     this.data = this.data?.filter((v) => v?.id !== id);
   };
 
@@ -38,4 +38,6 @@ class RecentSearchedWords {
   }
 }
 
-export default RecentSearchedWords;
+const dtO = new RecentSearchedWords();
+
+export default dtO;

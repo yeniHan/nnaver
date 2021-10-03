@@ -1,11 +1,9 @@
-import React, { useRef, useState} from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import MediaList from './MediaList';
 import Articles from './Articles';
 import useMediaButtons from './@hooks/useMediaButtons';
 import { MOBILE_WIDTH } from '@constants/MEDIA_WITHES';
-import {useWatch} from "react-hook-form";
-import {ARTICLES, MEDIAS} from "../../../../@constants/FIELD_NAMES";
 import {commonIconCSS} from "../../../../../@styles";
 
 
@@ -51,19 +49,11 @@ const NextBtn = styled.button`
 const List = () => {
   const { goPrevMedia, goNextMedia } = useMediaButtons();
 
-  const medias = useWatch({
-    name: MEDIAS,
-  });
-
-  const articles = useWatch({
-    name: ARTICLES,
-  });
-
   return (
     <Wrapper>
       <PrevBtn onClick={goPrevMedia} />
-      <MediaList medias={medias} />
-      <Articles articles={articles} />
+      <MediaList />
+      <Articles />
       <NextBtn onClick={goNextMedia} />
     </Wrapper>
   );

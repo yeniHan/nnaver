@@ -1,12 +1,13 @@
 import React, { useState} from 'react';
 import styled from 'styled-components';
-import MediaType from 'types/Media';
 import Media from './Media';
 import colors from '@styles/Colors';
-import { useFormContext } from "react-hook-form";
-import { MEDIA } from "../../../../../@constants/FIELD_NAMES";
+import {useFormContext} from "react-hook-form";
+import {MEDIA} from "../../../../../@constants/FIELD_NAMES";
 import { MOBILE_WIDTH } from '@constants/MEDIA_WITHES';
 import useInterval from "@utils/useInterval";
+import useArticlesAndMedias from "../../@hooks/useArticlesAndMedias";
+
 
 const Wrapper = styled.div`
   padding: 7px 14px;
@@ -22,7 +23,8 @@ const Wrapper = styled.div`
 `;
 
 
-const MediaList = ({ medias }: { medias: MediaType[] }) => {
+const MediaList = () => {
+  const { medias } = useArticlesAndMedias();
   const { setValue } = useFormContext();
   const [curMediaIdx, setCurMediaIdx] = useState(0);
 
