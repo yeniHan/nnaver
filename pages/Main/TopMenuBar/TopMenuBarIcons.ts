@@ -37,8 +37,18 @@ const PlayIc = styled.div`
   ${hideInTabletCss};
 `;
 
+const TvIc = styled.div`
+  ${commonIconCSS};
+  width: 12px;
+  height: 14px;
+  background-position: -256px -212px;
+  margin-right: 2px;  
+  ${hideInTabletCss};
+`;
+
 export default {
   ['1']: MailIc,
   ['6']: ShoppingLiveIc,
   ['7']: PlayIc,
+  ['8']: TvIc,
 };

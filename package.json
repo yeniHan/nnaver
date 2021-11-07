@@ -9,8 +9,10 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@loadable/component": "^5.15.0",
     "@reduxjs/toolkit": "^1.6.1",
     "axios": "^0.21.1",
+    "constate": "^3.3.0",
     "lodash": "^4.17.21",
     "next": "11.1.0",
     "next-images": "^1.8.1",

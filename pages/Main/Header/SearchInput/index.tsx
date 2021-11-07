@@ -38,7 +38,7 @@ const DropdownArrow = styled.button(({ folded }) => css`
 `);
 
 const SearchICWrapper = styled.div`
-  width: 56px;
+  width: 57px;
   background-color: ${colors.naverGreen};
   display: flex;
   justify-content: center;

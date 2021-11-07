@@ -1,24 +1,33 @@
 import React, {useEffect} from 'react';
 import styled from 'styled-components';
-import getRecommendedPosts from 'front-apis/apis/main/getRecommendedPosts';
-import useSWR from 'swr';
-import APIS from '@constants/APIS';
+import LAYOUT_INFO from '../@constants/LAYOUT_INFO';
+import WithMainPostLayout from './Layout/WithMainPostLayout';
+import ListLayout from './Layout/ListLayout';
+import SeeMoreButton from './SeeMoreButton';
+import { useCurrentPage, useCurrentCategory } from '../Context/PostContext';
 
 
 const Wrapper = styled.div`
-    margin-top: 35px;
+  display: ${({ hasMain }) => hasMain ? 'flex' : 'block'};
 `;
 
 const Content = () => {
-  const { data } = useSWR(APIS.RECOMMENDED_POSTS, getRecommendedPosts);
-  const posts = data?.posts;
+  const currentPage = useCurrentPage();
+  const currentCategory = useCurrentCategory();
+  // @ts-ignore
+  const hasMainPost = currentCategory ? LAYOUT_INFO[currentCategory]?.hasMainPost : [];
+  const leftPagesCount = currentPage - 1;
+  const leftPagesCountFakeArr = new Array(leftPagesCount)?.fill(0);
 
-  useEffect(() => {
-    console.log('posts:', data);
-  }, [posts])
   return (
-    <Wrapper>
-
+    <Wrapper hasMainPost={hasMainPost}>
+      {hasMainPost ? <WithMainPostLayout /> : <ListLayout page={1}/>}
+      {
+        leftPagesCountFakeArr?.map((_, idx) =>
+          <ListLayout key={idx +1} page={idx + 2} />
+        )
+      }
+      <SeeMoreButton />
     </Wrapper>
   );
 };

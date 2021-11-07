@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import Media from "types/Media";
 import colors from '@styles/Colors';
 import deleteNewsStandsMedia from 'front-apis/apis/main/deleteNewsStandsMedia';
-import useGetArticlesAndMedias from '../@hooks/useInitArticlesAndMedias';
+import useInitArticlesAndMedias from '../@hooks/useInitArticlesAndMedias';
 
 const Wrapper = styled.td`
   border: 1px solid ${colors?.grayBorder};
@@ -41,7 +41,7 @@ const Td = ({ media }: { media: Media }) => {
   const [isMouseOvered, setIsMouseOvered] = useState(false);
   const [trigger, setTrigger] = useState(false);
 
-  useGetArticlesAndMedias([trigger]);
+  useInitArticlesAndMedias([trigger]);
 
   const onClickUnsubscribeBtn = async () => {
     await deleteNewsStandsMedia({ media: media?.id }).then(() => setTrigger((prev) => !prev));
