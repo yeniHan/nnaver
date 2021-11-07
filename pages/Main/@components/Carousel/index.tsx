@@ -2,7 +2,7 @@ import React, { useState, useEffect, createRef, useMemo } from 'react';
 import styled, { css } from 'styled-components';
 import IntervalWrapper from '../IntervalWrapper';
 import useInit from './useInit';
-import useInterval from "../../../@utils/useInterval";
+import useInterval from "../../../@hooks/useInterval";
 const Wrapper = styled.div`
   width: 200px;
   position: relative;

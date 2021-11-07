@@ -1,5 +1,5 @@
 import React from 'react';
-import useInterval from '../../@utils/useInterval';
+import useInterval from '../../@hooks/useInterval';
 
 // This compoent is for triggering an setInverval() conditionally.
 const IntervalWrapper = ({ callback, interval } : { callback: () => void; interval: number }) => {

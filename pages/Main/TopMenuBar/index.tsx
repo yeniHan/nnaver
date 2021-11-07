@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
+import React, {useEffect, useState} from 'react';
 import styled, { css } from 'styled-components';
 import getMainMenus from '../../front-apis/apis/main/getMainMenus';
 import useSWR from 'swr';
-import { commonIconCSS } from '../@styles/index';
+import { commonIconCSS } from '../@styles';
 import TopMenuBarIcons from './TopMenuBarIcons';
 import colors from '../../@styles/Colors';
 import RealTimeWeatherInfoSlider from './RealTimeWeatherInfoSlider';
@@ -69,11 +69,10 @@ const NonPrimaryMenuItem = styled.li`
   }
 `;
 
-const SeeMoreBtn = styled.button(({ folded }) => css`
+const SeeMoreBtn = styled.div(({ folded }) => css`
   width: 61px;
   margin-left: 17px;
   font-size: 13px;
-  color: #202020;
   align-items: inherit;
   display: inherit;
   color: ${folded ? 'unset' : colors.naverGreen};
@@ -115,7 +114,7 @@ const TopMenuBar = () => {
     <Wrapper>
       <MenuWrapper>
         {primary?.map((v) => {
-          const Ic = TopMenuBarIcons[v?.id];
+          const Ic = TopMenuBarIcons?.[v?.id] || null;
           return (
             <PrimaryMenuItem key={v?.id}>
               {v?.hasIcon && <Ic />}
@@ -123,12 +122,12 @@ const TopMenuBar = () => {
             </PrimaryMenuItem>
           );
         })}
-        {
-          nonPrimary?.map((v) => (
-            <NonPrimaryMenuItem key={v?.id}>
-              <a href={v?.url}>{v?.text}</a>
-            </NonPrimaryMenuItem>
-          ))}
+        {/*{*/}
+        {/*nonPrimary?.map((v) => (*/}
+        {/*  <NonPrimaryMenuItem key={v?.id}>*/}
+        {/*    <a href={v?.url}>{v?.text}</a>*/}
+        {/*  </NonPrimaryMenuItem>*/}
+        {/*))}*/}
         <SeeMoreBtn onClick={onClickSeeMoreBtn} folded={folded}>
           <span>{folded ? '더보기' : '접기'}</span>
           <ArrowBtn folded={folded} />

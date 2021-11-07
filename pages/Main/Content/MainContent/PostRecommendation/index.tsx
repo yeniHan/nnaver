@@ -3,7 +3,10 @@ import styled from 'styled-components';
 import Title from './Title';
 import Content from './Content';
 import CategoryNavigator from './CategoryNavigator';
-import { useForm, FormProvider } from "react-hook-form";
+import useSWR from "swr";
+import APIS from "../../../../@constants/APIS";
+import getRecommendedPosts from "../../../../front-apis/apis/main/getRecommendedPosts";
+import { PostProvider } from './Context/PostContext';
 
 
 const Wrapper = styled.div`
@@ -11,15 +14,15 @@ const Wrapper = styled.div`
 `;
 
 const PostRecommendation = () => {
-  const methods = useForm();
+  useSWR(APIS.RECOMMENDED_POSTS, getRecommendedPosts);
 
   return (
     <Wrapper>
-      <FormProvider {...methods}>
+      <PostProvider>
         <Title />
         <CategoryNavigator />
         <Content />
-      </FormProvider>
+      </PostProvider>
     </Wrapper>
   );
 };

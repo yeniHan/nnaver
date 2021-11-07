@@ -44,7 +44,7 @@ const mainMenus = {
         url: 'https://order.pay.naver.com/home'
       },
       {
-        id: '7',
+        id: '8',
         text: 'TV',
         hasIcon: true,
         url: 'https://tv.naver.com/'

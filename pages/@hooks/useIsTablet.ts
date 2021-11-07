@@ -1,5 +1,5 @@
 import {useEffect, useState} from "react";
-import {TABLET_WIDTH_RAW} from "../@constants/MEDIA_WITHES";
+import {MOBILE_WIDTH_RAW, TABLET_WIDTH_RAW} from "../@constants/MEDIA_WITHES";
 
 const useIsTablet = () => {
   const [isTablet, setIsTablet] = useState(false);

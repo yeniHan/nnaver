@@ -5,3 +5,10 @@ export const ellipsisCss = css`
   white-space: nowrap;
   overflow: hidden;
 `;
+
+export const ellipsisMultiCss = css`
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+`;
