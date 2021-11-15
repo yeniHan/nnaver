@@ -3,6 +3,8 @@ import styled, { css } from 'styled-components';
 import { useCurrentCategory, useSetCurrentCategory } from '../Context/PostContext';
 import colors from '@styles/Colors';
 import { categoryColors } from '../@styles/categoryColors';
+import PostCategoryType from 'api/dummyTypes/PostCategory.type';
+
 
 const Wrapper = styled.label(({ selected, category }) => css`
   background-color: ${selected ? categoryColors[category]: 'unset'};
@@ -26,7 +28,7 @@ const Wrapper = styled.label(({ selected, category }) => css`
   }
 `);
 
-const CategoryItem = ({ category }) => {
+const CategoryItem = ({ category }: { category:  PostCategoryType }) => {
   const setCurrentCategory = useSetCurrentCategory();
   const currentCategory = useCurrentCategory();
   const isSelected = category?.name === currentCategory;

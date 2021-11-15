@@ -8,6 +8,7 @@ import useCategoryNavigatorInfo from "../@hooks/useCategoryNavigatorInfo";
 
 const Wrapper = styled.div`
   position: relative;
+  margin-top: 16px;
 `;
 
 const btnCSS = css`

@@ -32,6 +32,7 @@ const FlexBox = styled.div`
 
 const GrayText = styled.span`
   color: gray;
+  ${({showPreferedCategoryCheckboxForm}) => showPreferedCategoryCheckboxForm && 'text-decoration: underline'};
   
   b {
     font-width: bold;
@@ -54,7 +55,9 @@ const SettingIc = styled.span`
   margin-right: 4px;
 `;
 
-const Title = () => {
+const Title = ({ showPreferedCategoryCheckboxForm, setShowPreferedCategoryCheckboxForm }:
+                   // eslint-disable-next-line no-unused-vars
+                   { showPreferedCategoryCheckboxForm: boolean; setShowPreferedCategoryCheckboxForm: (show:boolean) => void }) => {
   const totalPosts = useTotalPosts();
   const postsNum = totalPosts?.length || 0;
 
@@ -68,7 +71,10 @@ const Title = () => {
         <GrayText><b>{postsNum}</b>개의 글</GrayText>
         <Devider />
         <SettingIc />
-        <GrayText>관심주제 설정</GrayText>
+        <GrayText
+          showPreferedCategoryCheckboxForm={showPreferedCategoryCheckboxForm}
+          onClick={() => setShowPreferedCategoryCheckboxForm(true)}
+        >관심주제 설정</GrayText>
       </FlexBox>
     </Wrapper>
   );

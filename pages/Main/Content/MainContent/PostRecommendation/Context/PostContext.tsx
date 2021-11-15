@@ -7,7 +7,8 @@ import getRecommendedPosts from "../../../../../front-apis/apis/main/getRecommen
 const usePostInfo = () => {
   const { data } = useSWR(APIS.RECOMMENDED_POSTS, getRecommendedPosts);
   const totalPosts = data?.posts;
-  const preferedCategories = data?.preferedCategories;
+  const preferedCategories = data?.categories?.filter((v) => v?.isPrefered);
+  const totalCategories = data?.categories;
   const [currentPage, setCurrentPage] = useState(1);
   const [currentCategory, setCurrentCategory] = useState();
   const [totalPage, setTotalPage] = useState(0);
@@ -41,6 +42,7 @@ const usePostInfo = () => {
     totalPosts,
     categoryPosts,
     preferedCategories,
+    totalCategories,
     currentPage,
     currentCategory,
     totalPage,
@@ -53,13 +55,14 @@ const usePostInfo = () => {
 };
 
 export const [PostProvider, useTotalPosts, useCategoryPosts,
-  usePreferedCategories, useCurrentPage, useSetCurrentPage,
+  usePreferedCategories, useTotalCategories, useCurrentPage, useSetCurrentPage,
   useCurrentCategory, useSetCurrentCategory, useTotalPage,
   useSetTotalPage, useGoNextPage, useShowSeeMoreButton] = constate(
   usePostInfo,
   value => value?.totalPosts,
   value => value?.categoryPosts,
   value => value?.preferedCategories,
+  value => value?.totalCategories,
   value => value?.currentPage,
   value => value?.setCurrentPage,
   value => value?.currentCategory,
