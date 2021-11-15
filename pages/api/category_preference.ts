@@ -1,4 +1,4 @@
-import ppO from './dummyDataModels/PreferedPostCategories';
+import ppO from './dummyDataModels/PostCategories';
 import METHODS from '../@constants/METHODS';
 
 export default function handler (req, res) {
@@ -7,14 +7,8 @@ export default function handler (req, res) {
   }
 
   else if (req.method === METHODS.POST) {
-    const newMedia = req.body.media;
-    ppO.add(newMedia);
-    res.status(200).json(ppO.get());
-  }
-
-  else if (req.method === METHODS.DELETE) {
-    const newMedia = req.body.media;
-    ppO.delete(newMedia);
+    const preferedCategories = req.body?.preferedCategories || [];
+    ppO.set(preferedCategories);
     res.status(200).json(ppO.get());
   }
 }

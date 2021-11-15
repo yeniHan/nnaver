@@ -29,7 +29,6 @@ const request = async ({
     method: castedMethod,
     ...config,
   }).then((res) => {
-    console.log('res.data:', data);
     return res.data;
   }).catch((e) => {
     throw e;

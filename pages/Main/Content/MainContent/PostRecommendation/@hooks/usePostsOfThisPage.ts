@@ -7,7 +7,6 @@ const usePostsOfThisPage = (page) => {
   const categoryPosts = useCategoryPosts();
 
   return useMemo(() => {
-    console.log('posts:', categoryPosts)
     const endIdx = page * postNumPerPage;
     let startIdx = endIdx - postNumPerPage;
     if (startIdx <= 0) startIdx = 0;

@@ -20,7 +20,7 @@ const Wrapper = styled.div`
 const MainContent = () => {
   return (
     <Wrapper>
-      <Banner src={bannerImg} layout="responsive" />
+      <Banner src={bannerImg} />
       <NewsStand />
       <PostRecommendation />
     </Wrapper>

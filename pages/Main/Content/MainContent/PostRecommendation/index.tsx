@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import Title from './Title';
 import Content from './Content';
 import CategoryNavigator from './CategoryNavigator';
+import PreferedCategoryCheckboxForm from './PreferedCategoryCheckboxForm';
 import useSWR from "swr";
 import APIS from "../../../../@constants/APIS";
 import getRecommendedPosts from "../../../../front-apis/apis/main/getRecommendedPosts";
@@ -15,11 +16,15 @@ const Wrapper = styled.div`
 
 const PostRecommendation = () => {
   useSWR(APIS.RECOMMENDED_POSTS, getRecommendedPosts);
+  const [showPreferedCategoryCheckboxForm, setShowPreferedCategoryCheckboxForm] = useState(false);
 
   return (
     <Wrapper>
       <PostProvider>
-        <Title />
+        <Title
+          showPreferedCategoryCheckboxForm={showPreferedCategoryCheckboxForm}
+          setShowPreferedCategoryCheckboxForm={setShowPreferedCategoryCheckboxForm} />
+        {showPreferedCategoryCheckboxForm && <PreferedCategoryCheckboxForm setShowPreferedCategoryCheckboxForm={setShowPreferedCategoryCheckboxForm} />}
         <CategoryNavigator />
         <Content />
       </PostProvider>
