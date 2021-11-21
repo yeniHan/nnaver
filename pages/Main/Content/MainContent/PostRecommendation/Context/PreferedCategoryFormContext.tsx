@@ -2,12 +2,12 @@ import { useState, useCallback, useEffect } from "react";
 import constate from "constate";
 import postPreferedCategories from "front-apis/apis/main/postPreferedCategories";
 import getRecommendedPosts from "front-apis/apis/main/getRecommendedPosts";
-import { usePreferedCategories, useTotalCategories } from "./PostContext";
+import {usePreferedCategories, useTotalCategories} from "./PostContext";
 import useSWR from "swr";
 import APIS from "../../../../../@constants/APIS";
 
 const usePreferedCategoryFormData = () => {
-  const { data } = useSWR(APIS.RECOMMENDED_POSTS, getRecommendedPosts);
+  const { data, mutate } = useSWR(APIS.RECOMMENDED_POSTS);
   const total = useTotalCategories()?.map((v) => v?.name);
   const initValues = usePreferedCategories()?.map((v) => v?.name);
   const [selectedCategories, setSelectedCategories] = useState([]);
@@ -37,7 +37,9 @@ const usePreferedCategoryFormData = () => {
   }, [data]);
 
   const submitPreferedCategoryForm = useCallback(async () => {
-    await postPreferedCategories({ preferedCategories: selectedCategories });
+    postPreferedCategories({ preferedCategories: selectedCategories }).then(() => {
+      mutate(getRecommendedPosts);
+    });
   },[selectedCategories]);
 
   return {

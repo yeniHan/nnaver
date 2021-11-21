@@ -8,5 +8,5 @@ export default function handler (req, res) {
     dtO.delete(id, all);
   }
 
-  res.status(200).json(dtO.get());
+  res.status(200).json();
 }

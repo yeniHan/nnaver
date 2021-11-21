@@ -102,8 +102,8 @@ const BottomLine = ({ setShowPreferedCategoryCheckboxForm }: { setShowPreferedCa
   const onClickSettingBtn = useCallback(async () => {
     await submitPreferedCategoryForm();
     await getRecommendedPosts();
-    setShowPreferedCategoryCheckboxForm(false);
     initForm();
+    setShowPreferedCategoryCheckboxForm(false);
   }, [submitPreferedCategoryForm, initForm]);
 
   return (

@@ -101,7 +101,7 @@ const ArrowBtn = styled.button(({ folded }) => css`
 `);
 
 const TopMenuBar = () => {
-  const { data } = useSWR(APIS.MAIN_MENUS, getMainMenus);
+  const { data } = useSWR(APIS.MAIN_MENUS);
   const primary = data?.topBar?.primary;
   const [folded, setFolded] = useState(true);
 

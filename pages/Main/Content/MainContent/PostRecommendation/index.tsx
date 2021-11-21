@@ -15,7 +15,6 @@ const Wrapper = styled.div`
 `;
 
 const PostRecommendation = () => {
-  useSWR(APIS.RECOMMENDED_POSTS, getRecommendedPosts);
   const [showPreferedCategoryCheckboxForm, setShowPreferedCategoryCheckboxForm] = useState(false);
 
   return (
