@@ -39,9 +39,6 @@ const Checkbox = ({ category }: { category: PostCategoryType }) => {
     onChangeCategoryCheckbox(category?.name, !isSelected);
   }, [onChangeCategoryCheckbox, category, isSelected]);
 
-  useEffect(() => {
-  }, [isSelected]);
-
   return (
     <Wrapper>
       <div onClick={onChangeHandler}>

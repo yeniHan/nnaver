@@ -5,9 +5,9 @@ import APIS from "../../../../../@constants/APIS";
 import getRecommendedPosts from "../../../../../front-apis/apis/main/getRecommendedPosts";
 
 const usePostInfo = () => {
-  const { data } = useSWR(APIS.RECOMMENDED_POSTS, getRecommendedPosts);
+  const { data } = useSWR(APIS.RECOMMENDED_POSTS);
   const totalPosts = data?.posts;
-  const preferedCategories = data?.categories?.filter((v) => v?.isPrefered);
+  const preferedCategories = useMemo(() => data?.categories?.filter((v) => v?.isPrefered), [data]);
   const totalCategories = data?.categories;
   const [currentPage, setCurrentPage] = useState(1);
   const [currentCategory, setCurrentCategory] = useState();
@@ -25,9 +25,7 @@ const usePostInfo = () => {
 
   // init current category
   useEffect(() => {
-    if (!currentCategory) {
-      setCurrentCategory(preferedCategories?.[0]?.name);
-    }
+    setCurrentCategory(preferedCategories?.[0]?.name);
   }, [preferedCategories]);
 
   // init post page info; currnetPage & totalPage

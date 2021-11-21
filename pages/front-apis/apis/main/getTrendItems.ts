@@ -2,14 +2,17 @@ import request from '../../../@utills/request';
 import APIS from '../../../@constants/APIS';
 import METHODS from '../../../@constants/METHODS';
 
-const getRealTimeWeather = async () => {
+const getTrendItems = async ({ page }: { page: number }) => {
   const data = await request({
-    url: APIS.REAL_TIME_WEATHER,
+    url: APIS.TREND_ITEMS,
     method: METHODS.GET,
+    data: {
+      page,
+    },
     isAuth: false,
   });
 
   return data;
 };
 
-export default getRealTimeWeather;
+export default getTrendItems;

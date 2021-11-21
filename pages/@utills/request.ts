@@ -1,9 +1,8 @@
 import axios, {
-  AxiosPromise,
   Method,
   AxiosRequestConfig,
 } from 'axios';
-import accessToken from '../../api/dummyDataModels/accessToken';
+import accessToken from '../api/dummyDataModels/accessToken';
 
 const request = async ({
   url,
@@ -16,7 +15,7 @@ const request = async ({
     url: string; method: string; config?: AxiosRequestConfig; data? : {}; isAuth: boolean;
 }) => {
 
-  if(!config?.headers) config.headers = {};
+  if (!config?.headers) config.headers = {};
 
   if (isAuth) {
     config.headers.Authorization = `Bearer ${accessToken}`;
@@ -24,7 +23,7 @@ const request = async ({
 
   const castedMethod: Method = method as Method;
 
-  const resData = await axios(url,{
+  const resData = await axios(`${process.env.API_URL}${url}`,{
     data: { ...data },
     method: castedMethod,
     ...config,

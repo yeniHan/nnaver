@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { commonIconCSS } from 'Main/@styles';
 import {TABLET_WIDTH} from "../../../../../@constants/MEDIA_WITHES";
-import { useTotalPosts } from "../Context/PostContext";
+import { useCategoryPosts } from "../Context/PostContext";
 
 const Wrapper = styled.div`
   display: flex;
@@ -58,8 +58,7 @@ const SettingIc = styled.span`
 const Title = ({ showPreferedCategoryCheckboxForm, setShowPreferedCategoryCheckboxForm }:
                    // eslint-disable-next-line no-unused-vars
                    { showPreferedCategoryCheckboxForm: boolean; setShowPreferedCategoryCheckboxForm: (show:boolean) => void }) => {
-  const totalPosts = useTotalPosts();
-  const postsNum = totalPosts?.length || 0;
+  const postsNum = useCategoryPosts()?.length || 0;
 
   return (
     <Wrapper>
@@ -70,11 +69,13 @@ const Title = ({ showPreferedCategoryCheckboxForm, setShowPreferedCategoryCheckb
       <FlexBox>
         <GrayText><b>{postsNum}</b>개의 글</GrayText>
         <Devider />
-        <SettingIc />
-        <GrayText
-          showPreferedCategoryCheckboxForm={showPreferedCategoryCheckboxForm}
-          onClick={() => setShowPreferedCategoryCheckboxForm(true)}
-        >관심주제 설정</GrayText>
+        <button>
+          <SettingIc />
+          <GrayText
+            showPreferedCategoryCheckboxForm={showPreferedCategoryCheckboxForm}
+            onClick={() => setShowPreferedCategoryCheckboxForm(true)}
+          >관심주제 설정</GrayText>
+        </button>
       </FlexBox>
     </Wrapper>
   );
