@@ -1,21 +1,26 @@
+import { totalMedias } from '../dummyData/newsStands';
+
 class NewsStandSetting {
-    subscribedMedias = ['HG', 'MG'];
+    mediasSubscription = [...totalMedias]
 
     get () {
-      return this.subscribedMedias;
+      return this.mediasSubscription;
+    }
+
+    getSubscribedMedias () {
+      return this.mediasSubscription?.filter((v) => v?.isSubscribed);
     }
 
     set (newSubscribedMedias) {
-      this.subscribedMedias = newSubscribedMedias;
+      this.mediasSubscription = newSubscribedMedias;
     }
 
-    add (media) {
-      this.subscribedMedias.push(media);
+    setIsSubscribed (mediaId, isSubscribed) {
+      this.mediasSubscription = this.mediasSubscription.map((v) => {
+        if (v?.id === mediaId) return { ... v, isSubscribed };
+        return v;
+      });
     }
-
-    delete (media) {
-      this.subscribedMedias = this.subscribedMedias.filter((v) => v !== media);
-    };
 }
 
 const dO = new NewsStandSetting();

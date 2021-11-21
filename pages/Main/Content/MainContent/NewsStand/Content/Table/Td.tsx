@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import Media from "types/Media";
 import colors from '@styles/Colors';
 import deleteNewsStandsMedia from 'front-apis/apis/main/deleteNewsStandsMedia';
+import postNewsStandsMedia from 'front-apis/apis/main/postNewsStandsMedia';
 import useInitArticlesAndMedias from '../@hooks/useInitArticlesAndMedias';
 
 const Wrapper = styled.td`
@@ -40,11 +41,13 @@ const Button = styled.button`
 const Td = ({ media }: { media: Media }) => {
   const [isMouseOvered, setIsMouseOvered] = useState(false);
   const [trigger, setTrigger] = useState(false);
+  const isSubscribed = media?.isSubscribed;
 
   useInitArticlesAndMedias([trigger]);
 
-  const onClickUnsubscribeBtn = async () => {
-    await deleteNewsStandsMedia({ media: media?.id }).then(() => setTrigger((prev) => !prev));
+  const toggleSubscription = async () => {
+    if (isSubscribed) await deleteNewsStandsMedia({ media: media?.id }).then(() => setTrigger((prev) => !prev));
+    else await postNewsStandsMedia({ media: media?.id }).then(() => setTrigger((prev) => !prev));
   };
 
   if (!media) {
@@ -66,7 +69,7 @@ const Td = ({ media }: { media: Media }) => {
         :
         (
           <div>
-            <Button onClick={onClickUnsubscribeBtn}>해지</Button>
+            <Button onClick={toggleSubscription}>{isSubscribed? '해지' : '구독'}</Button>
             <Button>
               <a href={media?.newsStandUrl}>
               기사보기

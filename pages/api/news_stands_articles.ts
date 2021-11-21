@@ -1,21 +1,21 @@
 import nsO from './dummyDataModels/NewsStandSetting';
 import METHODS from '../@constants/METHODS';
-import { articles, medias } from './dummyData/newsStands';
+import { totalArticles, totalMedias } from './dummyData/newsStands';
 import { MEDIA_SORTERS } from '../@constants/MEDIA_SORTERS';
 
 export default function handler (req, res) {
 
   if (req.method === METHODS.GET) {
     const sorter = req?.query?.sorter;
+    const subscribedMedias = nsO.getSubscribedMedias();
 
     if (sorter === MEDIA_SORTERS.SUBSCRIBED) {
-      const subscribedMediaIds = nsO.get();
-      const subscribedMedias = medias?.filter((v) => subscribedMediaIds.indexOf(v?.id) >= 0);
-      const subscribedArticles = articles?.filter((v) => subscribedMediaIds?.indexOf(v?.media) >= 0);
+      const subscribedMediaIds = subscribedMedias?.map((v) => v?.id);
+      const articles = totalArticles?.filter((v) => subscribedMediaIds.indexOf(v?.media) >= 0);
 
       res.status(200).json({
         data: {
-          articles: subscribedArticles,
+          articles,
           medias: subscribedMedias,
         }
       });
@@ -24,8 +24,8 @@ export default function handler (req, res) {
     else {
       res.status(200).json({
         data: {
-          articles,
-          medias,
+          articles: totalArticles,
+          medias: nsO.get(),
         }
       });
     }

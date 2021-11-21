@@ -1,5 +1,5 @@
 import {useWatch} from "react-hook-form";
-import {MEDIA_SORTER} from "../../../../../../@constants/MEDIA_SORTERS";
+import {MEDIA_SORTER, MEDIA_SORTERS} from "../../../../../../@constants/MEDIA_SORTERS";
 import {MEDIA} from "../../../../@constants/FIELD_NAMES";
 import useSWR from "swr";
 import APIS from "../../../../../../@constants/APIS";

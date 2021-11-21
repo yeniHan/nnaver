@@ -8,13 +8,13 @@ export default function handler (req, res) {
 
   else if (req.method === METHODS.POST) {
     const newMedia = req.body.media;
-    nsO.add(newMedia);
+    nsO.setIsSubscribed(newMedia, true);
     res.status(200).json(nsO.get());
   }
 
   else if (req.method === METHODS.DELETE) {
     const newMedia = req.body.media;
-    nsO.delete(newMedia);
+    nsO.setIsSubscribed(newMedia, false);
     res.status(200).json(nsO.get());
   }
 }
