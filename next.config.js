@@ -6,6 +6,9 @@ const withPlugins = require('next-compose-plugins');
 const nextConfig = withTM({
   reactStrictMode: true,
   // distDir: 'build',
+  env: {
+    API_URL: 'http://localhost:3000/',
+  },
   images: {
     disableStaticImages: true,
     domains: ['localhost', 's.pstatic.net', 'postfiles.pstatic.net',

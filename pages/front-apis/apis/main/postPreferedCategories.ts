@@ -1,4 +1,4 @@
-import request from '../../utills/request';
+import request from '../../../@utills/request';
 import APIS from '../../../@constants/APIS';
 import METHODS from '../../../@constants/METHODS';
 import PostCategoryType from 'api/dummyTypes/PostCategory.type';

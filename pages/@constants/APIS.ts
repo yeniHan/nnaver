@@ -7,6 +7,8 @@ const NEWS_STANDS_ARTICLES = 'api/news_stands_articles';
 const NEWS_STANDS_SUBSCRIPTION = 'api/news_stands_subscription';
 const CATEGORY_PREFERENCE = 'api/category_preference';
 const RECOMMENDED_POSTS = 'api/recommended_posts';
+const SHOPPING_NEWS = 'api/shopping_news';
+const TREND_ITEMS = 'api/trend_items';
 
 export default {
   RECENT_SEARCHED_WORDS,
@@ -17,4 +19,6 @@ export default {
   NEWS_STANDS_SUBSCRIPTION,
   CATEGORY_PREFERENCE,
   RECOMMENDED_POSTS,
+  SHOPPING_NEWS,
+  TREND_ITEMS,
 };

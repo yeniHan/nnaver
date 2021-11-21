@@ -1,7 +1,8 @@
-import React from 'react';
+import React, {useCallback} from 'react';
 import styled from 'styled-components';
- import {usePreferedCategories} from "../Context/PostContext";
 import colors from '@styles/Colors';
+import {useSelectedCategories} from "../Context/PreferedCategoryFormContext";
+import {useTotalCategories} from "../Context/PostContext";
 
 
 const Wrapper = styled.div`
@@ -27,14 +28,16 @@ const PreferedCategory = styled.div`
 `;
 
 const PreferedCategories = () => {
-  const preferedCategories = usePreferedCategories();
+  const selectedCategories = useSelectedCategories();
+  const totalCategories = useTotalCategories();
+  const getThisSelectedCategoryText = useCallback((name) => totalCategories?.find((v) => v?.name === name)?.text, [totalCategories]);
 
   return (
     <Wrapper>
       {new Array(8)?.fill(0)?.map((_, idx) => (
-        <PreferedCategory key={preferedCategories?.[idx]?.name}>
+        <PreferedCategory key={selectedCategories?.[idx]}>
           <span>
-            {preferedCategories?.[idx]?.text||''}
+            {getThisSelectedCategoryText(selectedCategories?.[idx])||''}
           </span>
         </PreferedCategory>
       ))}
