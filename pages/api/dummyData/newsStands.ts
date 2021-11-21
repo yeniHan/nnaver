@@ -1,29 +1,33 @@
 
-export const medias = [
+export const totalMedias = [
   {
     id: 'KM',
     name: '국민일보',
     imgUrl: 'https://s.pstatic.net/static/newsstand/2020/logo/light/0604/005.png',
-    newsStandUrl: 'https://newsstand.naver.com/?list=&pcode=005'
+    newsStandUrl: 'https://newsstand.naver.com/?list=&pcode=005',
+    isSubscribed: true,
   },
   {
     id: 'HG',
     name: '한겨례',
     imgUrl: 'https://s.pstatic.net/static/newsstand/2020/logo/light/0604/028.png',
     newsStandUrl: 'https://newsstand.naver.com/?list=&pcode=028',
+    isSubscribed: false,
   }, {
     id: 'MG',
     name: '매일경제',
     imgUrl: 'https://s.pstatic.net/static/newsstand/2020/logo/light/0604/009.png',
     newsStandUrl: 'https://newsstand.naver.com/?list=&pcode=009',
+    isSubscribed: true,
   }, {
     id: 'KMD',
     name: '코메디닷컴',
     imgUrl: 'https://s.pstatic.net/static/newsstand/2020/logo/light/0604/296.png',
     newsStandUrl: 'https://newsstand.naver.com/?list=&pcode=296',
+    isSubscribed: false,
   }];
 
-export const articles = [
+export const totalArticles = [
   {
     media: 'KM',
     title:'토론토 연승 끊은 최지만 시즌 10호 홈런',
