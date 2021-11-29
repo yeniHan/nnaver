@@ -37,7 +37,7 @@ const MenuWrapper = styled.ul`
     margin-right: 10px;
     align-items: center;
     word-break: keep-all;
-    font-size: 12px;
+    font-size: 15px;
     
     &:last-child {
       margin-right: 0;
