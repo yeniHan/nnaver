@@ -106,8 +106,9 @@ const RecentSearchedWords = ({ folded }: { folded: boolean }) => {
   };
 
   useEffect(() => {
+    console.log(recentSearchedWords)
     if (!folded) mutate();
-  }, [folded]);
+  }, [folded, recentSearchedWords]);
 
   if (folded) return null;
 
