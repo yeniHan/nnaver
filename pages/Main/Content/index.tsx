@@ -18,7 +18,7 @@ const Content = () => {
   return (
     <Wrapper>
       <MainContent />
-      {/*<SideBox />*/}
+      <SideBox />
     </Wrapper>
   );
 };

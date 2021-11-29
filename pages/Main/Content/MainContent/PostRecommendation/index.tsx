@@ -4,9 +4,6 @@ import Title from './Title';
 import Content from './Content';
 import CategoryNavigator from './CategoryNavigator';
 import PreferedCategoryCheckboxForm from './PreferedCategoryCheckboxForm';
-import useSWR from "swr";
-import APIS from "../../../../@constants/APIS";
-import getRecommendedPosts from "../../../../front-apis/apis/main/getRecommendedPosts";
 import { PostProvider } from './Context/PostContext';
 
 
