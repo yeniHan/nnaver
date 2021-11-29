@@ -6,7 +6,7 @@ const getRecentSearchedWords = async () => {
   const data = await request({
     url: APIS.RECENT_SEARCHED_WORDS,
     method: METHODS.GET,
-    isAuth: false,
+    isAuth: true,
   });
 
   return data;
