@@ -1,6 +1,6 @@
 # nnaver
 
-##NextJs, React를 사용하여 naver의 메인 페이지를 따라 만들어본
+##React, NextJs, SWR등을 사용하여 naver의 메인 페이지를 따라 만들어본
 카피 프로젝트입니다.
 
 ##네이버 웹 페이지는 반응형이 아니기때문에,
