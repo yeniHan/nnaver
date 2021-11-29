@@ -6,7 +6,7 @@ import {useCurrentPage} from '../../Context/PostContext'
 import ZoommingImg from "../../../../../@components/ZoommingImage";
 import usePostsOfThisPage from "../../@hooks/usePostsOfThisPage";
 import colors from '@styles/Colors';
-
+import { TABLET_WIDTH } from '@constants/MEDIA_WITHES';
 
 const Wrapper = styled.div`
  ${({ isCurrentPage }) => !isCurrentPage && `border-bottom: 1px solid ${colors.grayBorder}`};
@@ -31,6 +31,11 @@ const StyledZoomingImg = styled(ZoommingImg)`
 const ContentWrapper = styled.div`
   padding: 4px 47px 0 0;
   width: calc(100% - 158px);
+
+  @media (max-width: ${TABLET_WIDTH}) {
+    padding-right: 0;
+    width: 100%;
+  }
 `;
 
 const Category = styled.div`

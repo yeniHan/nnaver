@@ -20,7 +20,8 @@ const Wrapper = styled.div`
 `;
 
 const InnerHeight = styled.div`
-  height: 26px;
+  height: 17px;
+  font-size: 13px;
   display: flex;
   margin: 11px 15px;
   
