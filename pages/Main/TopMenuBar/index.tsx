@@ -103,6 +103,7 @@ const ArrowBtn = styled.button(({ folded }) => css`
 const TopMenuBar = () => {
   const { data } = useSWR(APIS.MAIN_MENUS);
   const primary = data?.topBar?.primary;
+  const nonPrimary = data?.topBar?.nonPrimary;
   const [folded, setFolded] = useState(true);
 
   const onClickSeeMoreBtn = () => {
@@ -121,12 +122,12 @@ const TopMenuBar = () => {
             </PrimaryMenuItem>
           );
         })}
-        {/*{*/}
-        {/*nonPrimary?.map((v) => (*/}
-        {/*  <NonPrimaryMenuItem key={v?.id}>*/}
-        {/*    <a href={v?.url}>{v?.text}</a>*/}
-        {/*  </NonPrimaryMenuItem>*/}
-        {/*))}*/}
+        {
+          nonPrimary?.map((v) => (
+            <NonPrimaryMenuItem key={v?.id}>
+              <a href={v?.url}>{v?.text}</a>
+            </NonPrimaryMenuItem>
+          ))}
         <SeeMoreBtn onClick={onClickSeeMoreBtn} folded={folded}>
           <span>{folded ? '더보기' : '접기'}</span>
           <ArrowBtn folded={folded} />
