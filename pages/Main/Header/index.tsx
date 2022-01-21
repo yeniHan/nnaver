@@ -4,6 +4,7 @@ import SearchInput from './SearchInput';
 import TopLine from './TopLine';
 import { commonIconCSS } from '../@styles/index';
 import { TABLET_WIDTH } from '@constants/MEDIA_WITHES';
+import AnimatedLogo from './AnimatedLogo'
 
 const Wrapper = styled.div`
   padding: 0 30px;
@@ -11,19 +12,6 @@ const Wrapper = styled.div`
   @media (max-width: ${TABLET_WIDTH}) {
     padding: 0 15px;
     padding-top: 15px;
-  }
-`;
-
-const Logo = styled.a`
-  ${commonIconCSS};
-  width: 222px;
-  height: 52px;
-  background-position: 0 -158px;
-  display: block;
-  margin-right: 18px;
-
-  @media (max-width: ${TABLET_WIDTH}) {
-    display: none !important;
   }
 `;
 
@@ -36,7 +24,7 @@ const Header = () => {
     <Wrapper>
       <TopLine />
       <SearchInputArea>
-        <Logo href="https://www.naver.com/" />
+        <AnimatedLogo />
         <SearchInput />
       </SearchInputArea>
     </Wrapper>
