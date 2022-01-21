@@ -2,8 +2,6 @@ import React from 'react';
 import styled, { css } from 'styled-components';
 import MediaType from '../../../../../../../types/Media';
 import {useFormContext, useWatch} from "react-hook-form";
-import {LAYOUT, LAYOUT_OPTIONS} from "../../../../../../../@constants/LAYOUT_SELECTOR";
-import {MEDIA_SORTER, MEDIA_SORTERS} from "../../../../../../../@constants/MEDIA_SORTERS";
 import { MEDIA } from '../../../../../@constants/FIELD_NAMES';
 import { commonIconCSS } from 'Main/@styles';
 
