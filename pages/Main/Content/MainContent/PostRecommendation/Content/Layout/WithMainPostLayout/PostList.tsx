@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import PostType from 'types/Post';
-import ZoommingImg from 'Main/@components/ZoommingImage';
+import ZoommingNextImg from 'Main/@components/ZoommingNextImage';
 import { categegoryCss, titleCss, fromCss } from '../@styles/feildsCss';
 import { ellipsisMultiCss } from '@styles';
 
@@ -18,7 +18,7 @@ const PostWrapper = styled.a`
   }
 `;
 
-const StyledZoommingImg = styled(ZoommingImg)`
+const StyledZoommingNextImg = styled(ZoommingNextImg)`
   width: 98px;
   height: 98px;
   margin-right: 18px;
@@ -51,7 +51,7 @@ const PostList = ({ posts }: { posts: PostType[] }) => {
     <Wrapper>
       {posts?.map((v) => (
         <PostWrapper key={v?.id} href={v?.link} target="_blank">
-          <StyledZoommingImg src={v?.imgUrl} />
+          <StyledZoommingNextImg src={v?.imgUrl} />
           <ContentWrapper>
             <Category category={v?.category}>{v?.subCategory}</Category>
             <Title>{v?.title}</Title>

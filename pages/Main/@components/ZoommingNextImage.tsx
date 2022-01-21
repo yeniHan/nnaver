@@ -1,4 +1,5 @@
 import React from 'react';
+import Image from 'next/image';
 import styled from 'styled-components';
 
 const Wrapper = styled.div`
@@ -8,9 +9,7 @@ const Wrapper = styled.div`
   img {
     transition: transform .2s;
     width: 100%;
-    height: inherit;
-  // background-position: center;
-  // background-size: cover;
+    height: 100%;
     object-fit: contain;
 
     :hover, :focus {
@@ -20,10 +19,10 @@ const Wrapper = styled.div`
 `;
 
 
-const ZoommingImage = ({ src, className }: { src: string; className?: string; }) => (
+const ZoommingNextImage = ({ src, objectFit = "cover", className }: { src: string; objectFit?: any; className?: string; }) => (
   <Wrapper className={className}>
-    {src && <img src={src} />}
+    {src && <Image src={src} layout="fill" objectFit={objectFit} />}
   </Wrapper>
 );
 
-export default ZoommingImage;
+export default ZoommingNextImage;
