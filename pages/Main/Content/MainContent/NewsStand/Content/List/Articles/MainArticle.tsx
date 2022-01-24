@@ -2,6 +2,8 @@ import React from 'react';
 import styled from 'styled-components';
 import Article from 'types/Article';
 import { MOBILE_WIDTH } from '@constants/MEDIA_WITHES';
+import ZoommingImg from "Main/@components/ZoommingImage";
+
 
 const Wrapper = styled.a`
   width: 196px;
@@ -11,11 +13,11 @@ const Wrapper = styled.a`
   }
 `;
 
-const Img = styled.img`
+const StyledZoommingImg = styled(ZoommingImg)`
   width: 100%;
   height: 130px;
-  object-fit: contain;
-  background-color: black;
+  //object-fit: contain;
+  //background-color: black;
 `;
 
 const Title = styled.div`
@@ -31,7 +33,7 @@ const Title = styled.div`
 const MainArticle = ({ article }: { article: Article}) => {
   return (
     <Wrapper href={article?.url} target="_blank">
-      <Img src={article?.imgUrl}/>
+      <StyledZoommingImg src={article?.imgUrl} />
       <Title>{article?.title}</Title>
     </Wrapper>
   );
