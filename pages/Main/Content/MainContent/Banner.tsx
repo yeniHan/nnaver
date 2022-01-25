@@ -45,7 +45,7 @@ const Banner = ({ src }:{ src: string }) => {
   const [mouseX, setMouseX] = useState(0);
   const [mouseY, setMouseY] = useState(0);
   const mouseEffectRef = useRef(null);
-  
+
   const onMouseMove = _.throttle((e: any) => {
     setMouseX(e.clientX);
     setMouseY(e.clientY);
@@ -61,7 +61,7 @@ const Banner = ({ src }:{ src: string }) => {
         mouseX={mouseX}
         mouseY={mouseY}
         onMouseMove={onMouseMove}
-      /><Instruction>Hover your mouse.</Instruction>
+      /><Instruction>Hover over me.</Instruction>
     </Wrapper>
   );
 };
