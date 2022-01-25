@@ -1,10 +1,10 @@
-import React, { useState } from 'react';
+import React, {useCallback, useEffect, useState} from 'react';
 import styled from 'styled-components';
 import Media from "types/Media";
 import colors from '@styles/Colors';
 import deleteNewsStandsMedia from 'front-apis/apis/main/deleteNewsStandsMedia';
 import postNewsStandsMedia from 'front-apis/apis/main/postNewsStandsMedia';
-import useInitArticlesAndMedias from '../@hooks/useInitArticlesAndMedias';
+
 
 const Wrapper = styled.td`
   border: 1px solid ${colors?.grayBorder};
@@ -40,15 +40,16 @@ const Button = styled.button`
 
 const Td = ({ media }: { media: Media }) => {
   const [isMouseOvered, setIsMouseOvered] = useState(false);
-  const [trigger, setTrigger] = useState(false);
-  const isSubscribed = media?.isSubscribed;
+  const [isSubscribed, setIsSubscribed] = useState(false);
 
-  useInitArticlesAndMedias([trigger]);
+  useEffect(() => {
+    if (media) setIsSubscribed(media?.isSubscribed);
+  },[media]);
 
-  const toggleSubscription = async () => {
-    if (isSubscribed) await deleteNewsStandsMedia({ media: media?.id }).then(() => setTrigger((prev) => !prev));
-    else await postNewsStandsMedia({ media: media?.id }).then(() => setTrigger((prev) => !prev));
-  };
+  const toggleSubscription =  useCallback(async () => {
+    if (isSubscribed) await deleteNewsStandsMedia({ media: media?.id }).then(() => setIsSubscribed(false));
+    else await postNewsStandsMedia({ media: media?.id }).then(() => setIsSubscribed(true));
+  }, [media, isSubscribed]);
 
   if (!media) {
     return (

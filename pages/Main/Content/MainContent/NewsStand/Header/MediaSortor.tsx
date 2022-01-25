@@ -1,9 +1,13 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import styled from 'styled-components';
 import { commonIconCSS } from '../../../../@styles';
 import { useFormContext, useWatch } from "react-hook-form";
 import { MEDIA_SORTERS, MEDIA_SORTER } from '../../../../../@constants/MEDIA_SORTERS';
 import { TABLET_WIDTH } from '@constants/MEDIA_WITHES';
+import useSWR from "swr";
+import APIS from "../../../../../@constants/APIS";
+import getNewsStandsArticles from "../../../../../front-apis/apis/main/getNewsStandsArticles";
+import {LAYOUT, LAYOUT_OPTIONS} from "../../../../../@constants/LAYOUT_SELECTOR";
 
 const Wrapper = styled.div`
   input {
@@ -65,6 +69,12 @@ const MediaSortor = () => {
   const mediaSorter = useWatch({
     name: MEDIA_SORTER,
   });
+
+  // const { mutate } = useSWR(APIS.NEWS_STANDS_ARTICLES);
+  //
+  // useEffect(() => {
+  //   mutate();
+  // }, [mediaSorter]);
 
   return (
     <Wrapper>

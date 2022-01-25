@@ -1,4 +1,4 @@
-import React, { useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import styled from 'styled-components';
 import Media from './Media';
 import colors from '@styles/Colors';
@@ -36,6 +36,10 @@ const MediaList = () => {
   };
 
   useInterval(selectNextMedia, 5000);
+
+  useEffect(() => {
+    if (medias?.length > 0) setValue(MEDIA, medias[0]);
+  }, [medias]);
 
   return (
     <Wrapper>

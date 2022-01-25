@@ -10,7 +10,7 @@ const MainPage = loadable(() => import('./Main'));
 
 export default function Main (props) {
   return (
-    <SWRConfig value={{ fallback: props?.fallback, refreshInterval: 0 }}>
+    <SWRConfig value={{ fallback: props?.fallback }}>
       <MainPage />
     </SWRConfig>
   );
