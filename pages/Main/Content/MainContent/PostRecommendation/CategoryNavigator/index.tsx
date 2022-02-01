@@ -59,7 +59,6 @@ const CategoryNavigator = () => {
           onInit={(sw) => {
             setSwiper(sw);
           }}
-          onResize={() => console.log('resize')}
         >
           {new Array(slideNum).fill(0).map((_, idx) => (
             <SwiperSlide key={idx}>
