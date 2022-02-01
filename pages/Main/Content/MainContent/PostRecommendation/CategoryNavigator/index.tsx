@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, {useState} from 'react';
 import styled, { css } from 'styled-components';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import CategorySlide from './CategorySlide';
@@ -26,7 +26,7 @@ const PrevBtn = styled.button`
   ${commonIconCSS};
   ${btnCSS};
   background-position: 0 -306px;
-  left: -25px;
+  left: -14px;
   top: 0;
 `;
 
@@ -34,7 +34,7 @@ const NextBtn = styled.button`
   ${commonIconCSS};
   ${btnCSS};
   background-position: -224px -158px;
-  right: -25px;
+  right: -14px;
   top: 0;
 `;
 
@@ -53,16 +53,21 @@ const CategoryNavigator = () => {
   return (
     <Wrapper>
       <PrevBtn isHidden={isBeginning} onClick={onClickPrevBtn}/>
-      <Swiper
-        onSlideChange={onSlideChangeHandler}
-        onInit={(sw) => setSwiper(sw)}
-      >
-        {new Array(slideNum).fill(0).map((_, idx) => (
-          <SwiperSlide key={idx}>
-            <CategorySlide idx={idx} />
-          </SwiperSlide>
-        ))}
-      </Swiper>
+      <div>
+        <Swiper
+          onSlideChange={onSlideChangeHandler}
+          onInit={(sw) => {
+            setSwiper(sw);
+          }}
+          onResize={() => console.log('resize')}
+        >
+          {new Array(slideNum).fill(0).map((_, idx) => (
+            <SwiperSlide key={idx}>
+              <CategorySlide idx={idx} />
+            </SwiperSlide>
+          ))}
+        </Swiper>
+      </div>
       <NextBtn isHidden={isEnd} onClick={onClickNextBtn} />
     </Wrapper>
   );
